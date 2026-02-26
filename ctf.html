@@ -146,12 +146,20 @@ if(kernel==="debug"){
 }
 
 function invokeLayer(){
-    const a=["HI","T{un"];
-    const b=["used","_func"];
-    const c=["tion","_flag}"];
-    const key=a[0]+a[1]+b[0]+b[1]+c[0]+c[1];
-    console.log(key);
-    return key;
+    // Memory reconstruction
+    const x9m=[72,73,84,123];
+    const k2p=[117,110,117,115];
+    const v7n=[101,100,95,102];
+    const r4w=[117,110,99,116];
+    const q8z=[105,111,110,95];
+    const t3h=[102,108,97,103];
+    const j6s=[125];
+    
+    // Data assembly
+    const d5x=[...x9m,...k2p,...v7n,...r4w,...q8z,...t3h,...j6s];
+    const b1c=d5x.map(n=>String.fromCharCode(n)).join('');
+    console.log(b1c);
+    return b1c;
 }
 </script>
 

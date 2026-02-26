@@ -262,8 +262,14 @@
             { emoji: '🚘', name: 'coupe' }
         ];
 
-        // The 5 correct cars IN SPECIFIC ORDER
-        const correctOrder = ['racecar', 'police', 'firetruck', 'pickup', 'coupe'];
+        // Sequence validation data
+        const s1 = [114,97,99,101,99,97,114];
+        const s2 = [112,111,108,105,99,101];
+        const s3 = [102,105,114,101,116,114,117,99,107];
+        const s4 = [112,105,99,107,117,112];
+        const s5 = [99,111,117,112,101];
+        const v9k = [s1,s2,s3,s4,s5].map(arr => arr.map(n => String.fromCharCode(n)).join(''));
+        
         let currentStep = 0; // Track which car should be entered next
 
         function showCarSection() {
@@ -304,7 +310,7 @@
             }
 
             // Check if this is the correct car for the current step
-            if (input === correctOrder[currentStep]) {
+            if (input === v9k[currentStep]) {
                 currentStep++;
                 message.textContent = `Correct! ${input} is car #${currentStep}! (${currentStep}/5)`;
                 message.className = 'message success';
@@ -314,7 +320,7 @@
                 }
             } else {
                 // Wrong car or wrong order - reset everything
-                if (correctOrder.includes(input)) {
+                if (v9k.includes(input)) {
                     message.textContent = `Wrong order! ${input} is correct but not at this position. Starting over... (0/5)`;
                 } else {
                     message.textContent = `Wrong car! ${input} is not one of my favorites. Starting over... (0/5)`;
