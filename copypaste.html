@@ -1,15 +1,152 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ghost Stream</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0d0208;
+            color: #00ffaa;
+            padding: 40px;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 2px solid rgba(0, 255, 170, 0.2);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px #00ffaa;
+        }
+
+        .info-panel {
+            background: rgba(0, 255, 170, 0.02);
+            border: 1px solid rgba(0, 255, 170, 0.1);
+            padding: 40px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .paragraph {
+            margin-bottom: 30px;
+            text-align: justify;
+            font-size: 1.15em;
+            color: #a0ffd0;
+        }
+
+        .data-fragment {
+            padding: 20px;
+            background: rgba(255, 0, 0, 0.05);
+            border: 1px dashed rgba(255, 0, 0, 0.3);
+            color: #ff5555;
+            text-align: center;
+            font-family: monospace;
+            margin: 40px 0;
+            user-select: all;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .data-fragment:hover {
+            background: rgba(255, 0, 0, 0.1);
+            border-color: #ff5555;
+        }
+
+        .pulse {
+            animation: pulse-glow 3s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                opacity: 0.8;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.8;
+            }
+        }
+
+        #status {
+            text-align: center;
+            font-size: 0.9em;
+            color: #888;
+            height: 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
 <body>
+    <div class="container">
+        <header>
+            <h1 class="pulse">Protocol: The Ghost Stream</h1>
+        </header>
 
-<p id="flag">HIT{this_is_not_the_real_flag}</p>
+        <div class="info-panel">
+            <p class="paragraph">
+                The clipboard is a transient pocket of memory, a waystation for data as it moves between environments.
+                Most users treat it as a passive container, but an operative understands that the act of transferring
+                information can itself be a point of interception and transformation.
+            </p>
 
-<script>
-document.getElementById("flag").addEventListener("copy", function(e) {
-    e.clipboardData.setData("text/plain", "HIT{copy_reveals_real_M8cTy6D}");
-    e.preventDefault();
-});
-</script>
+            <p class="paragraph">
+                What you see is not always what you carry. Data can be masked, substituted, or injected during the
+                milliseconds it spends within the system's buffer. The ghost in the stream manifests not when you
+                observe the source, but when you attempt to capture it.
+            </p>
 
+            <div class="data-fragment" id="fragment">
+                DECRYPT_ERROR: DATA_CORRUPTED_OR_NULL
+            </div>
+            <div id="status"></div>
+
+            <p class="paragraph"
+                style="margin-top: 40px; border-top: 1px solid rgba(0, 255, 170, 0.1); padding-top: 20px; font-size: 0.9em; opacity: 0.7;">
+                The fragment above appears unstable. Perhaps if you attempt to extract its contents and bring them
+                into your own environment, the underlying stream will stabilize into its true form. Observe the
+                result of the extraction.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("fragment").addEventListener("copy", function (e) {
+            const _q = ["SElUe2NvcH", "lfcmV2ZWFsc1", "9yZWFsX004", "Y1R5NkR9"];
+            const _r = atob(_q.join(""));
+
+            e.clipboardData.setData("text/plain", _r);
+            e.preventDefault();
+
+            const status = document.getElementById("status");
+            status.textContent = ">> EXTRACTION SUCCESSFUL: DATA STREAM CAPTURED";
+            setTimeout(() => { status.textContent = ""; }, 3000);
+        });
+    </script>
 </body>
+
 </html>

@@ -1,8 +1,2 @@
-// Part C: 5F746833
-console.log('Part 1 loaded');
-
-function initPuzzle() {
-    console.log('Puzzle initialized');
-}
-
-initPuzzle();
+// Part C Hex Sequence: 5F746833
+// Integrity Fragment Gamma: Active

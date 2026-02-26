@@ -1,75 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Background Image</title>
+    <title>The Chromatic Shadow</title>
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            box-sizing: border-box;
         }
-        .container {
-            background: white;
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0d0208;
+            color: #00ffaa;
             padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
-            width: 90%;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
             text-align: center;
-            position: relative;
+            margin-bottom: 50px;
+            border-bottom: 2px solid rgba(0, 255, 170, 0.2);
+            padding-bottom: 20px;
         }
+
         h1 {
-            color: #a8edea;
-            margin-bottom: 30px;
             font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px #00ffaa;
         }
-        .image-box {
-            background: #f8f9fa;
+
+        .info-panel {
+            background: rgba(0, 255, 170, 0.02);
+            border: 1px solid rgba(0, 255, 170, 0.1);
             padding: 40px;
             border-radius: 10px;
-            border-left: 5px solid #a8edea;
-            margin: 20px 0;
             position: relative;
         }
-        .image-box::after {
-            content: '';
-            display: block;
+
+        .paragraph {
+            margin-bottom: 30px;
+            text-align: justify;
+            font-size: 1.15em;
+            color: #a0ffd0;
+        }
+
+        .visual-manifestation {
             width: 200px;
             height: 200px;
-            margin: 20px auto;
+            margin: 40px auto;
+            background-color: rgba(0, 255, 170, 0.05);
             background-image: url('SElUe2Nzc19uMW5qNH0=.png');
             background-size: cover;
             background-position: center;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 255, 170, 0.3);
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 255, 170, 0.1);
+            position: relative;
         }
-        .description {
-            font-size: 1.05em;
-            color: #333;
-            margin: 20px 0;
-            padding: 20px;
-            background: white;
-            border-radius: 5px;
-            line-height: 1.6;
-            text-align: left;
+
+        .visual-manifestation::before {
+            content: 'ENTITY_01';
+            position: absolute;
+            top: -25px;
+            left: 0;
+            font-size: 0.8em;
+            letter-spacing: 2px;
+            opacity: 0.6;
+        }
+
+        .pulse {
+            animation: pulse-glow 3s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                opacity: 0.8;
+                text-shadow: 0 0 5px #00ffaa;
+            }
+
+            50% {
+                opacity: 1;
+                text-shadow: 0 0 15px #00ffaa;
+            }
+
+            100% {
+                opacity: 0.8;
+                text-shadow: 0 0 5px #00ffaa;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>Background Image</h1>
-        <div class="image-box">
-            <p class="description">
-                Style sheets do more than style. Sometimes they tell stories in their own way.
+        <header>
+            <h1 class="pulse">Protocol: The Chromatic Shadow</h1>
+        </header>
+
+        <div class="info-panel">
+            <p class="paragraph">
+                Interfaces are often composed of overlapping layers—some visible, others merely serving as a substrate
+                for what we perceive. While the observer focuses on the rendered output, the architect understands
+                that the true nature of an object is defined by the instructions that pull it into existence.
+            </p>
+
+            <p class="paragraph">
+                Consider the canvas before you. It appears complete, yet its appearance is governed by a set of rules
+                hidden from the casual viewer. These rules dictate not just the colors and shapes, but the very essence
+                of how data is mapped to the screen. To the uninitiated, it is just an image; to the seeker, it is
+                a sequence of declarations waiting to be unraveled.
+            </p>
+
+            <div class="visual-manifestation"></div>
+
+            <p class="paragraph">
+                Behind every aesthetic choice lies a path. The metadata of a resource can be as revealing as the
+                resource itself. In the digital realm, even the names given to shadows hold weight. To find what is
+                hidden, one must look not at the image, but at how the image is called from the void.
+            </p>
+
+            <p class="paragraph"
+                style="margin-top: 40px; border-top: 1px solid rgba(0, 255, 170, 0.1); padding-top: 20px; font-size: 0.9em; opacity: 0.7;">
+                If the visual representation remains silent, perhaps the truth is embedded in the declaration
+                that styles it. The properties of the manifestation may contain the key to its origin.
             </p>
         </div>
     </div>
 </body>
+
 </html>

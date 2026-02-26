@@ -1,94 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hidden Scroll</title>
+    <title>The Deep Resonator</title>
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0d0208;
+            color: #00ffaa;
+            padding: 20px;
+            line-height: 1.8;
+            overflow-x: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
+            min-height: 100vh;
         }
+
         .container {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
-            width: 90%;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        header {
             text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid rgba(0, 255, 170, 0.2);
+            padding-bottom: 20px;
         }
+
         h1 {
-            color: #ff9a9e;
-            margin-bottom: 30px;
-            font-size: 2.5em;
+            font-size: 2.2em;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px #00ffaa;
         }
-        .scroll-box {
-            background: #f8f9fa;
-            padding: 40px;
-            border-radius: 10px;
-            border-left: 5px solid #ff9a9e;
-            margin: 20px 0;
-            height: 400px;
-            overflow: hidden;
+
+        #scroll-trigger {
+            cursor: pointer;
+        }
+
+        .info-panel {
+            background: rgba(0, 255, 170, 0.02);
+            border: 1px solid rgba(0, 255, 170, 0.1);
+            padding: 50px;
+            border-radius: 12px;
             position: relative;
         }
-        .description {
-            font-size: 1.05em;
-            color: #333;
-            margin: 20px 0;
+
+        .paragraph {
+            text-align: justify;
+            font-size: 1.25em;
+            color: #a0ffd0;
+            margin-bottom: 25px;
+        }
+
+        #result {
+            margin-top: 30px;
             padding: 20px;
-            background: white;
-            border-radius: 5px;
-            line-height: 1.6;
-            text-align: left;
-        }
-        /* Part A: NDggNDkgNTQgN0I= */
-        .flag-container {
-            position: absolute;
-            top: 1800px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #ff9a9e;
-            opacity: 0.05;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            border: 3px solid #ff9a9e;
-        }
-        .flag-container:hover {
-            opacity: 1;
-        }
-        /* Decoy: 65 66 67 68 69 70 */
-        .hidden {
+            background: rgba(0, 255, 170, 0.05);
+            border: 1px solid #00ffaa;
+            color: #00ffaa;
             display: none;
+            text-align: center;
+            font-size: 1.2em;
+            letter-spacing: 1px;
         }
-        /* Part B: NzMgNjMgNzIgMzAgNmMgNmM= */
+
+        .pulse {
+            animation: pulse-glow 3s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                opacity: 0.8;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.8;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>Hidden Scroll</h1>
-        <!-- Decoy: 49 50 51 52 53 -->
-        <div class="scroll-box">
-            <p class="description">
-                What you see is not all there is. Look beyond the boundaries.
+        <header>
+            <h1 class="pulse">Protocol: The Deep <span id="scroll-trigger">Scroll</span></h1>
+        </header>
+
+        <div class="info-panel">
+            <p class="paragraph">
+                Digital structures are not limited to the dimensions of the screen. Beneath the surface of
+                the interface lies a vast, unrendered abyss—a reservoir of data that remains dormant
+                until the correct force is applied. While the casual user moves horizontally across the
+                surface, the architecture of the deep-guard is built upon verticality.
             </p>
-            <!-- Part C: NWYgNjQgMzMgMzM= -->
-            <div class="flag-container" data-key="NzAgMzMgNzIgN2Q=">
-                You found it! But can you decode the layers?
-            </div>
-            <!-- Decoy: 71 72 73 74 75 -->
+
+            <p class="paragraph">
+                The resonator is sensitive to specific types of physical interaction. It ignores the voice,
+                blurs the vision, and remains deaf to the standard input. Only by anchoring your focus on
+                the mechanism of depth and inducing a kinetic shift can you pierce the substrate. To look
+                beyond the boundaries, one must engage the very tools of navigation while fixated on the
+                source of the protocol's identity.
+            </p>
+
+            <div id="result"></div>
+
+            <p class="paragraph"
+                style="margin-top: 50px; border-top: 1px solid rgba(0, 255, 170, 0.1); padding-top: 30px; font-size: 1em; opacity: 0.6; color: #66ccaa;">
+                The signature is scrubbed and the anchor is hidden. Anchor your focus on the primary
+                designation and induce a vertical shift to trigger the convergence.
+            </p>
         </div>
     </div>
-    
+
+    <script>
+        const trigger = document.getElementById('scroll-trigger');
+        const result = document.getElementById('result');
+        let isHovering = false;
+
+        trigger.addEventListener('mouseenter', () => { isHovering = true; });
+        trigger.addEventListener('mouseleave', () => { isHovering = false; });
+
+        window.addEventListener('wheel', (e) => {
+            if (isHovering && Math.abs(e.deltaY) > 5) {
+                // Fragmented Base64: SElUe3NjcjBsbF9kMzNwM3J9
+                const _f = ['S', 'E', 'l', 'U', 'e', '3', 'N', 'j', 'c', 'j', 'B', 's', 'b', 'F', '9', 'k', 'M', 'z', 'N', 'w', 'M', '3', 'J', '9'];
+                const _x = _f.join('');
+                const _d = atob(_x);
+
+                result.textContent = '> RESONANCE DETECTED: ' + _d;
+                result.style.display = 'block';
+
+                console.log('-----------------------------------------');
+                console.log('>> SIGNAL CAPTURED FROM THE DEEP');
+                console.log('>> FLAG: ' + _d);
+                console.log('-----------------------------------------');
+            }
+        });
+    </script>
 </body>
+
 </html>

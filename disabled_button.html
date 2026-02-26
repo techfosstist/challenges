@@ -1,113 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Disabled Button</title>
+    <title>The Frozen Gate</title>
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            box-sizing: border-box;
         }
-        .container {
-            background: white;
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0d0208;
+            color: #00ffaa;
             padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
-            width: 90%;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
             text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 2px solid rgba(0, 255, 170, 0.2);
+            padding-bottom: 20px;
         }
+
         h1 {
-            color: #4facfe;
-            margin-bottom: 30px;
             font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px #00ffaa;
         }
-        .button-box {
-            background: #f8f9fa;
+
+        .info-panel {
+            background: rgba(0, 255, 170, 0.02);
+            border: 1px solid rgba(0, 255, 170, 0.1);
             padding: 40px;
             border-radius: 10px;
-            border-left: 5px solid #4facfe;
-            margin: 20px 0;
+            position: relative;
         }
-        #secretButton {
-            background: #cccccc;
-            color: #666666;
+
+        .paragraph {
+            margin-bottom: 30px;
+            text-align: justify;
+            font-size: 1.15em;
+            color: #a0ffd0;
+        }
+
+        .action-button {
+            display: block;
+            width: fit-content;
+            margin: 30px auto;
             padding: 15px 40px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.3em;
-            cursor: not-allowed;
-            transition: all 0.3s;
-        }
-        #secretButton:not(:disabled) {
-            background: #4facfe;
-            color: white;
-            cursor: pointer;
-        }
-        #secretButton:not(:disabled):hover {
-            background: #3d8cd4;
-        }
-        .description {
-            font-size: 1.05em;
-            color: #333;
-            margin: 20px 0;
-            padding: 20px;
-            background: white;
-            border-radius: 5px;
-            line-height: 1.6;
-            text-align: left;
-        }
-        #result {
-            margin-top: 20px;
-            padding: 15px;
-            background: #d4edda;
-            border: 1px solid #c3e6cb;
-            border-radius: 5px;
-            color: #155724;
-            display: none;
-            font-size: 1.2em;
+            background: transparent;
+            border: 2px solid rgba(0, 255, 170, 0.2);
+            color: rgba(0, 255, 170, 0.3);
+            font-family: 'Courier New', monospace;
             font-weight: bold;
+            font-size: 1.2em;
+            cursor: not-allowed;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
         }
-        /* Flag Part 1: HIT{ */
-        /* Flag Part 2: butt0n_ */
-        /* Flag Part 3: s3cr3ts} */
+
+        .action-button:not(:disabled) {
+            border: 2px solid #00ffaa;
+            color: #00ffaa;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 255, 170, 0.1);
+        }
+
+        .action-button:not(:disabled):hover {
+            background: #00ffaa;
+            color: #000;
+            box-shadow: 0 0 20px #00ffaa;
+        }
+
+        #result {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0, 255, 170, 0.05);
+            border: 1px solid #00ffaa;
+            color: #00ffaa;
+            display: none;
+            text-align: center;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+        }
+
+        .pulse {
+            animation: pulse-glow 3s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                opacity: 0.8;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.8;
+            }
+        }
+
+        /* The sequence is encoded within the manifestation. */
+        /* It is not visible through simple observation. */
+        /* One must trigger the pulse and look at the echo in the logs. */
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>Disabled Button</h1>
-        <div class="button-box">
-            <p class="description">
-                This button won't work... or will it? Check what's hidden in plain sight.
+        <header>
+            <h1 class="pulse">Protocol: The Frozen Gate</h1>
+        </header>
+
+        <div class="info-panel">
+            <p class="paragraph">
+                In the architecture of control, some paths are intentionally obstructed. These barriers often manifest
+                as inert objects—structures that exist but refuse to respond to interaction. They are the frozen gates
+                of the digital domain, standing silent until the environment itself is modified to allow passage.
             </p>
-            <!-- The flag is hidden in three parts -->
-            <!-- Look in the CSS comments above -->
-            <!-- Combine: Part 1 + Part 2 + Part 3 -->
-            <button id="secretButton" disabled onclick="revealFlag()">
-                Reveal Secret
+
+            <p class="paragraph">
+                To the standard observer, the gate is impassable. But the architect knows that every restriction is
+                simply a state—a boolean value in a sea of data. By altering the parameters of the object's existence,
+                one can dissolve the shackles that bind it.
+            </p>
+
+            <button class="action-button" id="secretButton" disabled>
+                Unlock Sequence
             </button>
+
             <div id="result"></div>
+
+            <p class="paragraph"
+                style="margin-top: 40px; border-top: 1px solid rgba(0, 255, 170, 0.1); padding-top: 20px; font-size: 0.9em; opacity: 0.7;">
+                The gate remains static because its attributes dictate its state. If you can manipulate the underlying
+                structure of the interface, you may find that the obstruction is merely a suggestion. Look into the
+                core properties of the element to find the fragments of the key.
+            </p>
         </div>
     </div>
+
     <script>
-        function revealFlag() {
-            // Flag assembled from CSS comments
-            const part1 = 'HIT{';
-            const part2 = 'butt0n_';
-            const part3 = 's3cr3ts}';
-            const flag = part1 + part2 + part3;
-            
+        document.getElementById('secretButton').addEventListener('click', () => {
+            // Obfuscated string parts: SElUe2J1 + dHQwbl9z + M2NyM3Rz + fQ==
+            const _p = ["SElUe2J1", "dHQwbl9z", "M2NyM3Rz", "fQ=="];
+            const _f = atob(_p.join(""));
+
+            console.log("-----------------------------------------");
+            console.log(">> FLAG DETECTED: " + _f);
+            console.log("-----------------------------------------");
+
             const resultDiv = document.getElementById('result');
-            resultDiv.textContent = 'Flag: ' + flag;
+            resultDiv.textContent = '> ACCESS GRANTED. SIGNAL BROADCAST TO CONSOLE.';
             resultDiv.style.display = 'block';
-        }
+        });
     </script>
 </body>
+
 </html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TECHFOSS ACCESS TERMINAL</title>
+
+<style>
+body{
+    margin:0;
+    background:#050505;
+    color:#33ff88;
+    font-family:Courier New, monospace;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+}
+
+header{
+    text-align:center;
+    padding:18px;
+    border-bottom:1px solid #33ff8844;
+    letter-spacing:3px;
+}
+
+main{
+    flex:1;
+    display:grid;
+    grid-template-columns:1fr 520px 1fr;
+    align-items:center;
+}
+
+.side{
+    padding:30px;
+    color:#1faa66;
+    font-size:14px;
+    line-height:22px;
+}
+
+.panel{
+    border:2px solid #33ff88;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 0 25px #33ff8844;
+}
+
+h1{
+    font-weight:normal;
+    letter-spacing:2px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#22cc66;
+    margin-bottom:20px;
+}
+
+button{
+    background:black;
+    color:#33ff88;
+    border:2px solid #33ff88;
+    padding:12px 24px;
+    font-family:inherit;
+    cursor:pointer;
+    transition:.2s;
+}
+
+button:hover{
+    background:#33ff88;
+    color:black;
+}
+
+.log{
+    margin-top:20px;
+    height:70px;
+    color:#66ffaa;
+}
+
+footer{
+    text-align:center;
+    padding:15px;
+    border-top:1px solid #33ff8844;
+    color:#1faa66;
+    font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+TECHFOSS :: LEGACY COMPUTE NODE
+</header>
+
+<main>
+
+<div class="side">
+system modules<br>
+core_interface ........ active<br>
+auth_layer ............ active<br>
+visual_engine ......... active<br>
+diagnostic_layer ...... standby<br>
+auxiliary_runtime ..... idle<br>
+execution_hook ........ inactive<br><br>
+note: inactive layers remain loaded in memory
+</div>
+
+<div class="panel">
+<h1>ACCESS TERMINAL</h1>
+<div class="subtitle">legacy environment v2.6</div>
+<button onclick="run()">INITIALIZE SYSTEM</button>
+<div class="log" id="log"></div>
+</div>
+
+<div class="side">
+memory map<br>
+0x00 kernel boot<br>
+0x14 interface shell<br>
+0x28 runtime handlers<br>
+0x42 dormant routines<br>
+0x64 preserved functions<br><br>
+warning: not all routines are executed during normal operation
+</div>
+
+</main>
+
+<footer>
+TECHFOSS OPEN TECHNOLOGY FESTIVAL • curiosity unlocks systems
+</footer>
+
+<script>
+function run(){
+    const msgs=[
+        "boot sequence verified",
+        "loading interface modules",
+        "checking execution permissions",
+        "system running in restricted mode"
+    ];
+    document.getElementById("log").innerText=
+        msgs[Math.floor(Math.random()*msgs.length)];
+}
+
+const kernel="stable";
+
+if(kernel==="debug"){
+    invokeLayer();
+}
+
+function invokeLayer(){
+    const a=["HI","T{un"];
+    const b=["used","_func"];
+    const c=["tion","_flag}"];
+    const key=a[0]+a[1]+b[0]+b[1]+c[0]+c[1];
+    console.log(key);
+    return key;
+}
+</script>
+
+</body>
+</html>

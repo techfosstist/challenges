@@ -1,10 +1,142 @@
-<style>
-.hidden-flag {
-    background-color: white;
-    color: white;
-}
-</style>
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="hidden-flag">
-    HIT{white_text_never_hides_J5wUx1B}
-</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Invisible Lattice</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0d0208;
+            color: #00ffaa;
+            padding: 20px;
+            line-height: 1.8;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid rgba(0, 255, 170, 0.2);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px #00ffaa;
+        }
+
+        .info-panel {
+            background: rgba(0, 255, 170, 0.02);
+            border: 1px solid rgba(0, 255, 170, 0.1);
+            padding: 50px;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .paragraph {
+            text-align: justify;
+            font-size: 1.25em;
+            color: #a0ffd0;
+            margin-bottom: 25px;
+        }
+
+        /* The hidden element should have no extra space and match background color */
+        #hidden-sequence {
+            color: #0d0208;
+            background: transparent;
+            font-weight: normal;
+            user-select: all;
+            display: inline;
+        }
+
+        /* Individual character spans to prevent string searching in Elements tab */
+        #hidden-sequence span:nth-child(2n) {
+            color: #0d0208;
+        }
+
+        .pulse {
+            animation: pulse-glow 3s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                opacity: 0.8;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.8;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="pulse">Protocol: The Invisible Lattice</h1>
+        </header>
+
+        <div class="info-panel">
+            <p class="paragraph">
+                What the eye perceives is merely a reconstruction of obvious data, while the truly significant
+                signals occur in the spaces between perception. To the untrained, the vacuum is empty; to the
+                seeker, the silence between sentences is where the most critical sequences are conducted,
+                waiting for a shift in visibility to reveal their true form.
+            </p>
+
+            <p class="paragraph">
+                True concealment relies on the assumption that what matches the background is non-existent. The
+                sequence you seek mimics the shadows of the interface, residing in the ink of the void. By
+                highlighting the hidden path, you might find that the end of this sentence holds a weight that
+                the eye initially failed to register.
+                <span id="hidden-sequence"></span>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const _k = ["S", "E", "l", "U", "e", "3", "d", "o", "a", "X", "R", "l", "X", "3", "R", "l", "e", "H", "R", "f", "b", "m", "V", "2", "Z", "X", "J", "f", "a", "G", "l", "k", "Z", "X", "N", "f", "S", "j", "V", "w", "U", "x", "g", "x", "Q", "n", "0", "="];
+
+        window.onload = () => {
+            const _x = _k.join('');
+            const _f = atob(_x);
+            const target = document.getElementById('hidden-sequence');
+
+            // Fragment the flag into individual spans to break searchability in "Elements" tab
+            // Browsers won't match a search for "HIT{" because each character is a separate text node
+            target.innerHTML = _f.split('').map(char => `<span>${char}</span>`).join('');
+
+            console.log('>> LATTICE_CONVERGENCE READY');
+
+            target.parentElement.addEventListener('mouseenter', () => {
+                console.log('>> ECHO DETECTED IN THE VOID');
+            });
+        };
+    </script>
+</body>
+
+</html>

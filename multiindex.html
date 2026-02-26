@@ -1,24 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multi-File Assembly</title>
+    <title>The Distributed Weaver</title>
     <link rel="stylesheet" href="multistyles1.css">
     <link rel="stylesheet" href="muitistyles2.css">
-    <link rel="stylesheet" href="multidecoy1.css">
+    <link rel="stylesheet" href="multifacet_echo1.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0d0208;
+            color: #00ffaa;
+            padding: 40px;
+            line-height: 1.8;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid rgba(0, 255, 170, 0.2);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px #00ffaa;
+        }
+
+        .info-panel {
+            background: rgba(0, 255, 170, 0.02);
+            border: 1px solid rgba(0, 255, 170, 0.1);
+            padding: 50px;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .paragraph {
+            text-align: justify;
+            font-size: 1.25em;
+            color: #a0ffd0;
+            margin-bottom: 25px;
+        }
+
+        .pulse {
+            animation: pulse-glow 3s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                opacity: 0.8;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.8;
+            }
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>Multi-File Assembly</h1>
-        <div class="puzzle-box">
-            <p class="description">
-                The flag has been divided. Look for the pieces in unexpected places.
+        <header>
+            <h1 class="pulse">Protocol: The Distributed Weaver</h1>
+        </header>
+
+        <div class="info-panel">
+            <p class="paragraph">
+                Integrity is rarely found in a single location. In the architecture of the deep-guard,
+                truth is often atomized—shattered into seemingly unrelated fragments and scattered
+                across the diverse layers of the infrastructure. To reconstruct the sequence, one must
+                move beyond the primary manifest and trace the dependencies that branch into the void.
+            </p>
+
+            <p class="paragraph">
+                Beware the phantom signals. The system is saturated with multifacet echoes—divergent paths
+                designed to mirror the structure of the truth without ever containing its essence. Only by
+                harvesting the specific nodes found within the network's secondary threads can the
+                Distributed Weaver pull the fragments back into a unified stream.
             </p>
         </div>
     </div>
     <script src="multipart1.js"></script>
     <script src="multipart2.js"></script>
-    <script src="multidecoy1.js"></script>
+    <script src="multifacet_echo1.js"></script>
+    <script src="weaver-status.js"></script>
 </body>
+
 </html>
