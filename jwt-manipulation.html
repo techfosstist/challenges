@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JWT Manipulation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+        }
+        h1 {
+            color: #1e3c72;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .token-box {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid #1e3c72;
+            margin: 20px 0;
+        }
+        .description {
+            font-size: 1.05em;
+            color: #333;
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            line-height: 1.6;
+            text-align: left;
+        }
+        .password-section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #e9ecef;
+            border-radius: 5px;
+        }
+        input[type="password"] {
+            width: 70%;
+            padding: 12px;
+            font-size: 1.1em;
+            border: 2px solid #1e3c72;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        button {
+            background: #1e3c72;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background: #2a5298;
+        }
+        .token {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            word-break: break-all;
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            display: none;
+        }
+        .locked {
+            color: #721c24;
+            background: #f8d7da;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #f5c6cb;
+        }
+        .unlocked {
+            color: #155724;
+            background: #d4edda;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #c3e6cb;
+        }
+        #message {
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>JWT Manipulation</h1>
+        <div class="token-box">
+ 
+            
+            <div class="password-section">
+                <h3>🔒 Token Locked</h3>
+                <input type="password" id="passwordInput" placeholder="Enter password to unlock token..." maxlength="10">
+                <br>
+                <button onclick="checkPassword()">Unlock Token</button>
+                <div id="message"></div>
+            </div>
+            
+            <div class="token" id="tokenDisplay">
+                <strong>Token:</strong><br>
+                SElUe2p3dF8xc19uMHRfczNjdXIzfQ==
+            </div>
+          
+        </div>
+    </div>
+    <script>
+        const correctPassword = "TIST";
+        
+        function checkPassword() {
+            const input = document.getElementById('passwordInput').value;
+            const message = document.getElementById('message');
+            const tokenDisplay = document.getElementById('tokenDisplay');
+            
+            if (input === correctPassword) {
+                message.className = 'unlocked';
+                message.textContent = '✓ Token Unlocked! The JWT token is now visible below.';
+                tokenDisplay.style.display = 'block';
+            } else {
+                message.className = 'locked';
+                message.textContent = '✗ Incorrect password. Keep searching...';
+                tokenDisplay.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

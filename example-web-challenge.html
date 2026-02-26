@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Login Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            color: #00ffaa;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00ffaa;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(0, 255, 170, 0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px #00ffaa;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            background: #000;
+            border: 1px solid #00ffaa;
+            color: #00ffaa;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 255, 170, 0.5);
+        }
+        
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #00ffaa;
+            color: #000;
+            border: none;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        button:hover {
+            background: #00dd88;
+            box-shadow: 0 0 20px rgba(0, 255, 170, 0.5);
+        }
+        
+        .message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+        
+        .error {
+            background: rgba(255, 0, 0, 0.2);
+            border: 1px solid #ff0000;
+            color: #ff6666;
+        }
+        
+        .success {
+            background: rgba(0, 255, 170, 0.2);
+            border: 1px solid #00ffaa;
+            color: #00ffaa;
+        }
+        
+        /* Hidden flag in an invisible element */
+        .hidden-data {
+            display: none;
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            left: -9999px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 SECURE LOGIN</h1>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <button type="submit">ACCESS SYSTEM</button>
+        </form>
+        
+        <div id="message" class="message"></div>
+        
+        <!-- Hidden flag in the DOM - participants need to inspect the page -->
+        <div class="hidden-data" data-secret="HIT{inspect_element_is_your_friend}">
+            <!-- Flag: HIT{inspect_element_is_your_friend} -->
+        </div>
+    </div>
+
+    <script>
+        // Another flag hidden in console
+        console.log('%c🚨 SECURITY ALERT 🚨', 'color: #ff0000; font-size: 20px; font-weight: bold;');
+        console.log('%cUnauthorized access detected!', 'color: #00ffaa; font-size: 14px;');
+        console.log('%cDebug mode enabled...', 'color: #888; font-size: 12px;');
+        
+        // Obfuscated flag in JavaScript
+        const debugInfo = {
+            version: '1.0.0',
+            build: 'prod',
+            apiKey: 'sk_live_abc123',
+            // Another way to hide flag
+            internalFlag: atob('Q1RGe2NvbnMwbDNfZGVidWdfbTBkM30=') // CTF{cons0l3_debug_m0d3}
+        };
+        
+        console.log('System Info:', debugInfo);
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const messageDiv = document.getElementById('message');
+            
+            // Fake authentication
+            if (username === 'admin' && password === 'admin123') {
+                messageDiv.className = 'message success';
+                messageDiv.textContent = '✓ ACCESS GRANTED - But this is not the flag!';
+                messageDiv.style.display = 'block';
+            } else {
+                messageDiv.className = 'message error';
+                messageDiv.textContent = '✗ ACCESS DENIED - Invalid credentials';
+                messageDiv.style.display = 'block';
+            }
+            
+            // Flag also hidden in network request (check Network tab)
+            fetch('/api/auth', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Flag-Header': 'CTF{n3tw0rk_t4b_m4st3r}'
+                },
+                body: JSON.stringify({ username, password })
+            }).catch(() => {
+                // This will fail but the request will show in Network tab
+            });
+        });
+        
+        // Flag in localStorage
+        localStorage.setItem('app_config', JSON.stringify({
+            theme: 'dark',
+            language: 'en',
+            secretKey: 'CTF{l0c4l_st0r4g3_s3cr3t}'
+        }));
+    </script>
+</body>
+</html>

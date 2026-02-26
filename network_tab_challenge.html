@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Transient Echo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0d0208;
+            color: #00ffaa;
+            padding: 40px;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 2px solid rgba(0, 255, 170, 0.2);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px #00ffaa;
+        }
+
+        .info-panel {
+            background: rgba(0, 255, 170, 0.02);
+            border: 1px solid rgba(0, 255, 170, 0.1);
+            padding: 40px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .paragraph {
+            margin-bottom: 30px;
+            text-align: justify;
+            font-size: 1.15em;
+            color: #a0ffd0;
+        }
+
+        .action-button {
+            display: block;
+            width: fit-content;
+            margin: 30px auto;
+            padding: 15px 40px;
+            background: transparent;
+            border: 2px solid #00ffaa;
+            color: #00ffaa;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 1.2em;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 170, 0.1);
+        }
+
+        .action-button:hover {
+            background: #00ffaa;
+            color: #000;
+            box-shadow: 0 0 20px #00ffaa;
+        }
+
+        #status-msg {
+            text-align: center;
+            height: 24px;
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        .pulse {
+            animation: pulse-glow 3s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                opacity: 0.8;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.8;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="pulse">Protocol: The Transient Echo</h1>
+        </header>
+
+        <div class="info-panel">
+            <p class="paragraph">
+                Modern applications are inherently chatty. Every interaction you perform triggers a cascade of
+                background requests to remote services. While the visual layer of the web is designed for humans, the
+                circuitry of the stream is where the machines communicate in raw, unfiltered data.
+            </p>
+
+            <p class="paragraph">
+                A common mistake is assuming that what is hidden from the visual interface is truly gone. An operative
+                knows that every action sends ripples through the digital ether. By feeling the pulse of
+                the exchange and capturing the shadows of the silent dialogue, one can catch fragments of data that were
+                never meant to be rendered on screen.
+            </p>
+
+            <button class="action-button" id="pingBtn">Initiate Handshake</button>
+            <p id="status-msg">> Waiting for signal...</p>
+
+            <p class="paragraph" style="margin-top: 40px;">
+                Press the button above to trigger a localized data burst. If you are attuned to the frequency of the
+                pulse, you may find that the truth is not in the result, but in the essence of the pulse itself. Look
+                closely at the packaging of the request.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById('pingBtn');
+        const status = document.getElementById('status-msg');
+
+        btn.addEventListener('click', async () => {
+            status.textContent = '> Initiating request...';
+
+            // The signal is broadcast but the endpoint is dark.
+            // Observation of the undercurrents reveals the true intent
+            // encoded within the structure of the request itself.
+            try {
+                // Obfuscating 'HIT{n3tw04rk_nd83n3f}'
+                const _b = [72, 73, 84, 123, 110, 51, 116, 119, 48, 52, 114, 107, 95, 110, 100, 56, 51, 110, 51, 102, 125];
+                const _s = String.fromCharCode(..._b);
+
+                await fetch(`/api/v1/internal/config?flag=${_s}`, {
+                    method: 'GET',
+                    headers: {
+                        'X-Flag-Segment': _s,
+                        'Accept': 'application/json'
+                    }
+                });
+            } catch (e) {
+                // Silencing the error to keep the console clean
+            }
+
+            setTimeout(() => {
+                status.textContent = '> Request complete. Result: 404_NOT_FOUND';
+            }, 800);
+        });
+    </script>
+</body>
+
+</html>

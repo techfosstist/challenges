@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disabled Button</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+        }
+        h1 {
+            color: #4facfe;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .button-box {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 10px;
+            border-left: 5px solid #4facfe;
+            margin: 20px 0;
+        }
+        #secretButton {
+            background: #cccccc;
+            color: #666666;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.3em;
+            cursor: not-allowed;
+            transition: all 0.3s;
+        }
+        #secretButton:not(:disabled) {
+            background: #4facfe;
+            color: white;
+            cursor: pointer;
+        }
+        #secretButton:not(:disabled):hover {
+            background: #3d8cd4;
+        }
+        .description {
+            font-size: 1.05em;
+            color: #333;
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            line-height: 1.6;
+            text-align: left;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            color: #155724;
+            display: none;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        /* Flag Part 1: HIT{ */
+        /* Flag Part 2: butt0n_ */
+        /* Flag Part 3: s3cr3ts} */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Disabled Button</h1>
+        <div class="button-box">
+            <p class="description">
+                This button won't work... or will it? Check what's hidden in plain sight.
+            </p>
+            <!-- The flag is hidden in three parts -->
+            <!-- Look in the CSS comments above -->
+            <!-- Combine: Part 1 + Part 2 + Part 3 -->
+            <button id="secretButton" disabled onclick="revealFlag()">
+                Reveal Secret
+            </button>
+            <div id="result"></div>
+        </div>
+    </div>
+    <script>
+        function revealFlag() {
+            // Flag assembled from CSS comments
+            const part1 = 'HIT{';
+            const part2 = 'butt0n_';
+            const part3 = 's3cr3ts}';
+            const flag = part1 + part2 + part3;
+            
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = 'Flag: ' + flag;
+            resultDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Overlay</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+        }
+        h1 {
+            color: #30cfd0;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .content-box {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 10px;
+            border-left: 5px solid #30cfd0;
+            margin: 20px 0;
+            position: relative;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(51, 8, 103, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.5em;
+            border-radius: 10px;
+            z-index: 10;
+        }
+        .hidden-content {
+            font-size: 1.2em;
+            color: #333;
+            padding: 20px;
+            position: relative;
+        }
+        .hidden-content::before {
+            content: 'HIT{';
+            color: #30cfd0;
+            font-weight: bold;
+        }
+        .hidden-content::after {
+            content: '}';
+            color: #30cfd0;
+            font-weight: bold;
+        }
+        .description {
+            font-size: 1.05em;
+            color: #333;
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            line-height: 1.6;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Text Overlay</h1>
+        <div class="content-box">
+            <div class="overlay">
+                <div>
+                    <p>🚫 Access Blocked</p>
+                    <p class="description">Remove the obstacle to see what lies beneath.</p>
+                </div>
+            </div>
+            <div class="hidden-content" data-text="ZDNsM3QzX3QwX3MzMw==">
+                <p class="description">
+                    The flag is here, but scattered. Find all the pieces.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

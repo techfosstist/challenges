@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4 - Car Hunt Challenge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'VT323', monospace;
+            background: #2c3e50;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: bold;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+
+        .header-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-title {
+            color: #ffff00;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .flag-icon {
+            font-size: 32px;
+        }
+
+        .task-section {
+            background: #34495e;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .task-title {
+            font-size: 48px;
+            color: #ffffff;
+            margin-bottom: 30px;
+            font-family: 'Pixelify Sans', cursive;
+        }
+
+        .task-instruction {
+            background: #ecf0f1;
+            color: #000000;
+            padding: 20px 40px;
+            border-radius: 10px;
+            font-size: 24px;
+            display: inline-block;
+            margin-bottom: 30px;
+            position: relative;
+            font-family: 'VT323', monospace;
+        }
+
+        .task-instruction::before {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50px;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #ecf0f1;
+        }
+
+        .website-button {
+            background: #000000;
+            color: #ffffff;
+            padding: 15px 40px;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'VT323', monospace;
+            transition: all 0.3s ease;
+        }
+
+        .website-button:hover {
+            background: #333333;
+            transform: scale(1.05);
+        }
+
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .car-item {
+            font-size: 80px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.5));
+        }
+
+        .car-item:hover {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .input-section {
+            background: #ecf0f1;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .input-label {
+            font-size: 24px;
+            color: #000000;
+            margin-bottom: 20px;
+            font-family: 'VT323', monospace;
+        }
+
+        .car-input {
+            width: 80%;
+            max-width: 600px;
+            padding: 15px;
+            font-size: 20px;
+            border: 3px solid #000000;
+            border-radius: 5px;
+            font-family: 'VT323', monospace;
+            margin-bottom: 20px;
+        }
+
+        .submit-button {
+            background: #27ae60;
+            color: #ffffff;
+            padding: 15px 50px;
+            font-size: 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Pixelify Sans', cursive;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background: #229954;
+            transform: scale(1.05);
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 22px;
+            font-family: 'VT323', monospace;
+            min-height: 30px;
+        }
+
+        .error {
+            color: #e74c3c;
+        }
+
+        .success {
+            color: #27ae60;
+        }
+
+        .flag-display {
+            background: #ffff00;
+            color: #000000;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px auto;
+            max-width: 800px;
+            font-size: 24px;
+            font-weight: bold;
+            display: none;
+            border: 5px solid #000000;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <span class="logo-icon"></span>
+        
+        </div>
+        <div class="header-center">
+            <span class="header-title">Capture The Flag</span>
+            <span class="flag-icon">🚩</span>
+        </div>
+    </div>
+
+    <div class="task-section">
+        
+        <div class="task-instruction">
+            Find the FIVE cars I like!!
+        </div>
+        <button class="website-button" onclick="showCarSection()">Click me to go to the website</button>
+    </div>
+
+    <div id="carSection" class="hidden">
+        <div class="car-grid" id="carGrid">
+            <!-- Cars will be inserted here -->
+        </div>
+
+        <div class="input-section">
+            <div class="input-label">Enter Here</div>
+            <input type="text" id="carInput" class="car-input" placeholder="car_name">
+            <br>
+            <button class="submit-button" onclick="checkCar()">Drive!</button>
+            <div id="message" class="message"></div>
+            <div id="flagDisplay" class="flag-display">
+                🎉 FLAG: <span id="flagText"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Car emojis and their names
+        const cars = [
+            { emoji: '🚗', name: 'sedan' },
+            { emoji: '🚙', name: 'suv' },
+            { emoji: '🚕', name: 'taxi' },
+            { emoji: '🚌', name: 'bus' },
+            { emoji: '🚎', name: 'trolleybus' },
+            { emoji: '🏎️', name: 'racecar' },
+            { emoji: '🚓', name: 'police' },
+            { emoji: '🚑', name: 'ambulance' },
+            { emoji: '🚒', name: 'firetruck' },
+            { emoji: '🚐', name: 'minibus' },
+            { emoji: '🚚', name: 'truck' },
+            { emoji: '🚛', name: 'lorry' },
+            { emoji: '🚜', name: 'tractor' },
+            { emoji: '🛻', name: 'pickup' },
+            { emoji: '🚘', name: 'coupe' }
+        ];
+
+        // The 5 correct cars IN SPECIFIC ORDER
+        const correctOrder = ['racecar', 'police', 'firetruck', 'pickup', 'coupe'];
+        let currentStep = 0; // Track which car should be entered next
+
+        function showCarSection() {
+            document.getElementById('carSection').classList.remove('hidden');
+            document.querySelector('.task-section').style.display = 'none';
+            renderCars();
+        }
+
+        function renderCars() {
+            const grid = document.getElementById('carGrid');
+            grid.innerHTML = '';
+            
+            // Shuffle cars for random display
+            const shuffled = [...cars].sort(() => Math.random() - 0.5);
+            
+            shuffled.forEach(car => {
+                const carDiv = document.createElement('div');
+                carDiv.className = 'car-item';
+                carDiv.textContent = car.emoji;
+                carDiv.title = 'Click to inspect';
+                carDiv.onclick = () => inspectCar(car.name);
+                grid.appendChild(carDiv);
+            });
+        }
+
+        function inspectCar(carName) {
+            document.getElementById('carInput').value = carName;
+        }
+
+        function checkCar() {
+            const input = document.getElementById('carInput').value.toLowerCase().trim();
+            const message = document.getElementById('message');
+            
+            if (!input) {
+                message.textContent = 'Please enter a car name!';
+                message.className = 'message error';
+                return;
+            }
+
+            // Check if this is the correct car for the current step
+            if (input === correctOrder[currentStep]) {
+                currentStep++;
+                message.textContent = `Correct! ${input} is car #${currentStep}! (${currentStep}/5)`;
+                message.className = 'message success';
+                
+                if (currentStep === 5) {
+                    showFlag();
+                }
+            } else {
+                // Wrong car or wrong order - reset everything
+                if (correctOrder.includes(input)) {
+                    message.textContent = `Wrong order! ${input} is correct but not at this position. Starting over... (0/5)`;
+                } else {
+                    message.textContent = `Wrong car! ${input} is not one of my favorites. Starting over... (0/5)`;
+                }
+                message.className = 'message error';
+                currentStep = 0; // Reset to beginning
+            }
+            
+            document.getElementById('carInput').value = '';
+        }
+
+        function showFlag() {
+            const flagDisplay = document.getElementById('flagDisplay');
+            const flagText = document.getElementById('flagText');
+            
+            // Data assembly
+            const x7d = [72,73,84,123];
+            const a9 = [99,52,114,95];
+            const b3 = [104,117,110,116];
+            const m2k = [51,114,95,109];
+            const p8v = [52,115,116,51];
+            const q1n = [114,95,50,48];
+            const w5r = [50,54,125];
+            
+            // Combine segments
+            const z9x = [...x7d, ...a9, ...b3, ...m2k, ...p8v, ...q1n, ...w5r];
+            const t4h = z9x.map(c => String.fromCharCode(c)).join('');
+            
+            flagText.textContent = t4h;
+            flagDisplay.style.display = 'block';
+            
+            document.getElementById('message').textContent = 'Congratulations! You found all 5 cars in the correct order!';
+            document.getElementById('message').className = 'message success';
+        }
+
+        // Allow Enter key to submit
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('carInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    checkCar();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

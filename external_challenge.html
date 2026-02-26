@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 6 - Nature Explorer Challenge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'VT323', monospace;
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c2c 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: #000000;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: bold;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .logo-icon::before {
+            content: "🔒 ";
+        }
+
+        .header-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-title {
+            color: #ffff00;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .flag-icon {
+            font-size: 32px;
+        }
+
+        .container {
+            flex: 1;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .challenge-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .task-title {
+            font-size: 56px;
+            color: #2d5016;
+            margin-bottom: 20px;
+            font-family: 'Pixelify Sans', cursive;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .task-description {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .website-button {
+            background: linear-gradient(135deg, #4a7c2c 0%, #2d5016 100%);
+            color: white;
+            padding: 20px 50px;
+            font-size: 28px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Pixelify Sans', cursive;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(45, 80, 22, 0.4);
+            display: block;
+            margin: 30px auto;
+        }
+
+        .website-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(45, 80, 22, 0.6);
+        }
+
+        .flags-section {
+            margin-top: 40px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: #2d5016;
+            margin-bottom: 20px;
+            font-family: 'Pixelify Sans', cursive;
+            text-align: center;
+        }
+
+        .flag-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .flag-item {
+            background: #f8f9fa;
+            border: 3px solid #4a7c2c;
+            border-radius: 15px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .flag-item.correct {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+
+        .flag-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4a7c2c;
+            margin-bottom: 10px;
+            font-family: 'Pixelify Sans', cursive;
+        }
+
+        .flag-hint {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .flag-input-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .flag-input {
+            flex: 1;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #4a7c2c;
+            border-radius: 8px;
+            font-family: 'VT323', monospace;
+        }
+
+        .check-button {
+            background: #4a7c2c;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Pixelify Sans', cursive;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .check-button:hover {
+            background: #2d5016;
+        }
+
+        .check-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .status-icon {
+            font-size: 24px;
+            margin-left: 10px;
+        }
+
+        .progress-bar {
+            background: #e9ecef;
+            height: 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 30px 0;
+            border: 3px solid #4a7c2c;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #4a7c2c 0%, #6ba83d 100%);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-family: 'Pixelify Sans', cursive;
+        }
+
+        .main-flag-section {
+            background: #fff3cd;
+            border: 5px solid #ffc107;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            text-align: center;
+            display: none;
+        }
+
+        .main-flag-section.show {
+            display: block;
+        }
+
+        .final-flag {
+            background: #ffff00;
+            color: #000000;
+            padding: 30px;
+            border-radius: 15px;
+            font-size: 32px;
+            font-weight: bold;
+            border: 5px solid #000000;
+            font-family: 'Press Start 2P', cursive;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-top: 20px;
+        }
+
+        .hint-box {
+            background: #e3f2fd;
+            border-left: 5px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-size: 18px;
+            color: #1565c0;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="container">
+        <div class="challenge-card">
+           
+            
+            <p class="task-description">
+                Explore the Nature Conservation website and find 9 hidden flags by answering environment-related questions!
+            </p>
+
+            <button class="website-button" onclick="goToWebsite()">
+                🌍 Click me to go to the website
+            </button>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill">0/9 Flags Found</div>
+            </div>
+
+            <div class="flags-section">
+                <h2 class="section-title">Submit Your Flags</h2>
+                
+                <div class="flag-grid">
+                    <div class="flag-item" id="flag1">
+                        <div class="flag-number">Flag 1 🌳</div>
+                        <div class="flag-hint">What is the main mission? Protecting our planet's _____ and water.</div>
+                        <div class="flag-input-group">
+                            <input type="text" class="flag-input" id="input1" placeholder="Enter flag 1">
+                            <button class="check-button" onclick="checkFlag(1)">Check</button>
+                            <span class="status-icon" id="status1"></span>
+                        </div>
+                    </div>
+
+                    <div class="flag-item" id="flag2">
+                        <div class="flag-number">Flag 2 🦋</div>
+                        <div class="flag-hint">The organization works to protect endangered _____ around the world.</div>
+                        <div class="flag-input-group">
+                            <input type="text" class="flag-input" id="input2" placeholder="Enter flag 2">
+                            <button class="check-button" onclick="checkFlag(2)">Check</button>
+                            <span class="status-icon" id="status2"></span>
+                        </div>
+                    </div>
+
+                    <div class="flag-item" id="flag3">
+                        <div class="flag-number">Flag 3 🌊</div>
+                        <div class="flag-hint">Fighting against _____ change is a key priority.</div>
+                        <div class="flag-input-group">
+                            <input type="text" class="flag-input" id="input3" placeholder="Enter flag 3">
+                            <button class="check-button" onclick="checkFlag(3)">Check</button>
+                            <span class="status-icon" id="status3"></span>
+                        </div>
+                    </div>
+
+                    <div class="flag-item" id="flag4">
+                        <div class="flag-number">Flag 4 🌺</div>
+                        <div class="flag-hint">Preserving natural _____ for future generations.</div>
+                        <div class="flag-input-group">
+                            <input type="text" class="flag-input" id="input4" placeholder="Enter flag 4">
+                            <button class="check-button" onclick="checkFlag(4)">Check</button>
+                            <span class="status-icon" id="status4"></span>
+                        </div>
+                    </div>
+
+                    <div class="flag-item" id="flag5">
+                        <div class="flag-number">Flag 5 🌲</div>
+                        <div class="flag-hint">Protecting _____ ecosystems like the Amazon rainforest.</div>
+                        <div class="flag-input-group">
+                            <input type="text" class="flag-input" id="input5" placeholder="Enter flag 5">
+                            <button class="check-button" onclick="checkFlag(5)">Check</button>
+                            <span class="status-icon" id="status5"></span>
+                        </div>
+                    </div>
+
+                    <div class="flag-item" id="flag6">
+                        <div class="flag-number">Flag 6 🐋</div>
+                        <div class="flag-hint">Conserving _____ environments including coral reefs.</div>
+                        <div class="flag-input-group">
+                            <input type="text" class="flag-input" id="input6" placeholder="Enter flag 6">
+                            <button class="check-button" onclick="checkFlag(6)">Check</button>
+                            <span class="status-icon" id="status6"></span>
+                        </div>
+                    </div>
+
+                    <div class="flag-item" id="flag7">
+                        <div class="flag-number">Flag 7 🌾</div>
+                        <div class="flag-hint">Supporting sustainable _____ practices for food production.</div>
+                        <div class="flag-input-group">
+                            <input type="text" class="flag-input" id="input7" placeholder="Enter flag 7">
+                            <button class="check-button" onclick="checkFlag(7)">Check</button>
+                            <span class="status-icon" id="status7"></span>
+                        </div>
+                    </div>
+
+                    <div class="flag-item" id="flag8">
+                        <div class="flag-number">Flag 8 💧</div>
+                        <div class="flag-hint">Protecting freshwater _____ like rivers and lakes.</div>
+                        <div class="flag-input-group">
+                            <input type="text" class="flag-input" id="input8" placeholder="Enter flag 8">
+                            <button class="check-button" onclick="checkFlag(8)">Check</button>
+                            <span class="status-icon" id="status8"></span>
+                        </div>
+                    </div>
+
+                    <div class="flag-item" id="flag9">
+                        <div class="flag-number">Flag 9 🌍</div>
+                        <div class="flag-hint">Working with local _____ to protect their environment.</div>
+                        <div class="flag-input-group">
+                            <input type="text" class="flag-input" id="input9" placeholder="Enter flag 9">
+                            <button class="check-button" onclick="checkFlag(9)">Check</button>
+                            <span class="status-icon" id="status9"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-flag-section" id="mainFlagSection">
+                <h2 class="section-title">🎉 Congratulations! 🎉</h2>
+                <p style="font-size: 24px; margin: 20px 0;">
+                    You found all 9 flags! Here's your main flag:
+                </p>
+                <div class="final-flag" id="finalFlag">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // The 9 flags to find (environment-related keywords from Nature.org)
+        const flags = {
+            1: 'LAND',
+            2: 'SPECIES',
+            3: 'CLIMATE',
+            4: 'HABITATS',
+            5: 'FORESTS',
+            6: 'OCEAN',
+            7: 'AGRICULTURE',
+            8: 'WATER',
+            9: 'COMMUNITIES'
+        };
+
+        let foundFlags = new Set();
+
+        // External website URL
+        const websiteURL = 'https://www.nature.org/en-us/';
+
+        function goToWebsite() {
+            window.open(websiteURL, '_blank');
+        }
+
+        function checkFlag(flagNumber) {
+            const input = document.getElementById(`input${flagNumber}`).value.trim().toUpperCase();
+            const statusIcon = document.getElementById(`status${flagNumber}`);
+            const flagItem = document.getElementById(`flag${flagNumber}`);
+            const button = flagItem.querySelector('.check-button');
+
+            if (!input) {
+                statusIcon.textContent = '❌';
+                return;
+            }
+
+            if (input === flags[flagNumber]) {
+                statusIcon.textContent = '✅';
+                flagItem.classList.add('correct');
+                button.disabled = true;
+                foundFlags.add(flagNumber);
+                updateProgress();
+
+                if (foundFlags.size === 9) {
+                    showMainFlag();
+                }
+            } else {
+                statusIcon.textContent = '❌';
+            }
+        }
+
+        function updateProgress() {
+            const progressFill = document.getElementById('progressFill');
+            const percentage = (foundFlags.size / 9) * 100;
+            progressFill.style.width = percentage + '%';
+            progressFill.textContent = `${foundFlags.size}/9 Flags Found`;
+        }
+
+        function showMainFlag() {
+            const mainFlagSection = document.getElementById('mainFlagSection');
+            mainFlagSection.classList.add('show');
+            mainFlagSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Display result
+            const k9p = [72,73,84,123];
+            const v2m = [110,52,116,117];
+            const r8x = [114,51,95,51];
+            const n4q = [120,112,108,48];
+            const t7w = [114,51,114,95];
+            const j3s = [109,52,115,116];
+            const y6h = [51,114,95,50];
+            const d1z = [48,50,54,125];
+            
+            // Combine data
+            const b5n = [...k9p, ...v2m, ...r8x, ...n4q, ...t7w, ...j3s, ...y6h, ...d1z];
+            const m8c = b5n.map(x => String.fromCharCode(x)).join('');
+            
+            document.getElementById('finalFlag').textContent = m8c;
+        }
+
+        // Allow Enter key to submit
+        for (let i = 1; i <= 9; i++) {
+            document.getElementById(`input${i}`).addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    checkFlag(i);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

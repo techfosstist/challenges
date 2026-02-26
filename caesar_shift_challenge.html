@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Triumvirate's Offset</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0a0a0c;
+            color: #00ffaa;
+            padding: 40px;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 2px solid rgba(0, 255, 170, 0.2);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px #00ffaa;
+        }
+
+        .info-panel {
+            background: rgba(0, 255, 170, 0.02);
+            border: 1px solid rgba(0, 255, 170, 0.1);
+            padding: 40px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .transmission-log {
+            background: #000;
+            border: 1px solid #1a1a1a;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Lucida Console', Monaco, monospace;
+            color: #ffaa00;
+            /* Amber terminal color */
+            box-shadow: inset 0 0 10px rgba(255, 170, 0, 0.1);
+        }
+
+        .cipher-text {
+            display: block;
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px dashed #ffaa00;
+            text-align: center;
+            font-size: 1.5em;
+            letter-spacing: 5px;
+            background: rgba(255, 170, 0, 0.05);
+            text-shadow: 0 0 5px #ffaa00;
+        }
+
+        .paragraph {
+            margin-bottom: 20px;
+            text-align: justify;
+            font-size: 1.1em;
+            color: #a0ffd0;
+        }
+
+        .version-tag {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 0.8em;
+            color: #444;
+        }
+
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            z-index: 10;
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+        }
+
+        .hint-text {
+            color: #555;
+            font-style: italic;
+            font-size: 0.9em;
+            margin-top: 30px;
+        }
+
+        .pulse {
+            animation: pulse-glow 4s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                opacity: 0.7;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.7;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scanlines"></div>
+    <div class="container">
+        <header>
+            <h1 class="pulse">The Triumvirate's Offset</h1>
+        </header>
+
+        <div class="info-panel">
+            <span class="version-tag">PROTOCOL_V.03</span>
+
+            <p class="paragraph">
+                Intelligence reports indicate that a segment of communication from the central archive was processed
+                using a legacy encoding scheme. While most modern systems use elliptical curve cryptography, historical
+                remnants of the network still rely on these basic alignment protocols first utilized by the commanders
+                of the house of Julius.
+            </p>
+
+            <div class="transmission-log">
+                [SYSTEM LOG: 02:45:00]<br>
+                > INTERCEPTING PACKET 0xFF21...<br>
+                > DECODING HEADER... DONE.<br>
+                > PAYLOAD ENCRYPTED VIA: PERSISTENT_OFFSET_V.03<br>
+                > RAW MESSAGE BELOW:<br><br>
+
+                <span class="cipher-text">KLW{KDLO_MXOLXV}</span>
+            </div>
+
+            <p class="paragraph">
+                Historical records suggest that the key to these transmissions often lies in the versioning of the
+                protocol itself. The structure is fixed, requiring a specific re-alignment to restore the original
+                signal.
+            </p>
+
+            <p class="hint-text">
+                *Note: Digits and underscore characters remain unchanged. Look for the rotation factor buried in the
+                system metadata.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3 - Prime Number Debug</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'VT323', monospace;
+            background: #ffffff;
+            min-height: 100vh;
+        }
+
+        
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: bold;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        
+        
+
+        .header-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-title {
+            color: #ffff00;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .flag-icon {
+            font-size: 32px;
+        }
+
+        .menu-icon {
+            color: #ffffff;
+            font-size: 28px;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .task-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #000000;
+            font-family: 'Pixelify Sans', cursive;
+        }
+
+        .task-description {
+            font-size: 30px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #000000;
+        }
+
+        .hint {
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: #000000;
+        }
+
+        .code-editor {
+            background: #e8e8e8;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .code-editor textarea {
+            width: 100%;
+            min-height: 280px;
+            background: #ffffff;
+            color: #000000;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+            padding: 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.4;
+            resize: vertical;
+        }
+
+        .btn {
+            padding: 10px 24px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Pixelify Sans', cursive;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            background: #0066cc;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0052a3;
+        }
+
+        .output-box {
+            background: #1a1a1a;
+            color: #ffffff;
+            padding: 15px 20px;
+            border-radius: 4px;
+            font-family: 'VT323', monospace;
+            margin-bottom: 20px;
+            min-height: 50px;
+            font-size: 20px;
+            border: 2px solid #333333;
+        }
+
+        .test-results-section {
+            margin-top: 20px;
+        }
+
+        .test-results-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #000000;
+        }
+
+        .test-result {
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            border-radius: 3px;
+        }
+
+        .test-fail {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .test-pass {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .flag-display {
+            background: #ffff00;
+            color: #000000;
+            padding: 20px;
+            border-radius: 4px;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            display: none;
+            border: 3px solid #000000;
+            font-family: 'Press Start 2P', cursive;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <span class="logo-icon"></span>
+           
+        </div>
+        <div class="header-center">
+            <span class="header-title">Capture The Flag</span>
+            <span class="flag-icon">🚩</span>
+        </div>
+    </div>
+
+    <div class="container">
+       
+        
+        <p class="task-description">
+            Debug the provided Python code snippets, which contain intentional errors. Identify and correct all mistakes. Pass all test cases to obtain the Flag.
+        </p>
+        
+        <p class="hint">
+            Hint! There are 3 errors in the code
+        </p>
+
+        <div class="code-editor">
+            <textarea id="codeInput" spellcheck="false">num = int(input("Enter number: "))
+if num < 1:
+    print("Prime")
+else:
+    for i in range(2, num):
+        if num % i == 0:
+            print("Prime")
+            break
+    else:
+        print("Not Prime")</textarea>
+        </div>
+
+        <button class="btn btn-primary" onclick="runAllTests()">Run Code</button>
+        
+        <div class="output-box" id="output"></div>
+
+        <div class="flag-display" id="flagDisplay">
+            🎉 FLAG: <span id="flagText"></span>
+        </div>
+    </div>
+
+    <script>
+        function executePythonCode(code, inputNum) {
+            let num = inputNum;
+            
+            // Normalize quotes
+            code = code.replace(/['']/g, "'").replace(/[""]/g, '"');
+            
+            // For numbers <= 1
+            if (num <= 1) {
+                // Check if code has correct condition (num <= 1)
+                if (code.includes('num <= 1')) {
+                    // Extract what it prints
+                    const lines = code.split('\n');
+                    for (let i = 0; i < lines.length; i++) {
+                        if (lines[i].includes('num <= 1')) {
+                            const nextLine = lines[i + 1];
+                            if (nextLine && nextLine.includes('print')) {
+                                const match = nextLine.match(/print\s*\(\s*["']([^"']+)["']/);
+                                if (match) {
+                                    let output = match[1].trim();
+                                    // Normalize output
+                                    if (output.toLowerCase().includes('not') || output.toLowerCase().includes('notprime')) {
+                                        return "Not Prime";
+                                    } else if (output.toLowerCase().includes('prime')) {
+                                        return "Prime";
+                                    }
+                                    return output;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    return "Not Prime";
+                } else if (code.includes('num < 1')) {
+                    // Wrong condition
+                    if (num < 1) {
+                        const lines = code.split('\n');
+                        for (let i = 0; i < lines.length; i++) {
+                            if (lines[i].includes('num < 1')) {
+                                const nextLine = lines[i + 1];
+                                if (nextLine && nextLine.includes('print')) {
+                                    const match = nextLine.match(/print\s*\(\s*["']([^"']+)["']/);
+                                    if (match) {
+                                        let output = match[1].trim();
+                                        if (output.toLowerCase().includes('not') || output.toLowerCase().includes('notprime')) {
+                                            return "Not Prime";
+                                        } else if (output.toLowerCase().includes('prime')) {
+                                            return "Prime";
+                                        }
+                                        return output;
+                                    }
+                                }
+                                break;
+                            }
+                        }
+                        return "Prime";
+                    } else {
+                        // num == 1, goes to else branch
+                        return "Prime"; // Will be wrong
+                    }
+                }
+            }
+            
+            // For numbers >= 2, check if actually prime
+            let isPrime = true;
+            for (let i = 2; i < num; i++) {
+                if (num % i === 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            
+            // Extract what code prints for composite and prime
+            const lines = code.split('\n');
+            let compositeOutput = null;
+            let primeOutput = null;
+            
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i];
+                
+                // Find "if num % i == 0:"
+                if (line.includes('num % i == 0')) {
+                    const nextLine = lines[i + 1];
+                    if (nextLine && nextLine.includes('print')) {
+                        const match = nextLine.match(/print\s*\(\s*["']([^"']+)["']/);
+                        if (match) {
+                            compositeOutput = match[1].trim();
+                        }
+                    }
+                }
+                
+                // Find for-else (else after break)
+                if (line.trim() === 'else:') {
+                    // Check if there's a break before this else
+                    let hasBreak = false;
+                    for (let j = i - 1; j >= 0 && j >= i - 3; j--) {
+                        if (lines[j].includes('break')) {
+                            hasBreak = true;
+                            break;
+                        }
+                    }
+                    
+                    if (hasBreak) {
+                        const nextLine = lines[i + 1];
+                        if (nextLine && nextLine.includes('print')) {
+                            const match = nextLine.match(/print\s*\(\s*["']([^"']+)["']/);
+                            if (match) {
+                                primeOutput = match[1].trim();
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Normalize outputs
+            if (compositeOutput) {
+                if (compositeOutput.toLowerCase().includes('not') || compositeOutput.toLowerCase().replace(/\s/g, '') === 'notprime') {
+                    compositeOutput = "Not Prime";
+                } else if (compositeOutput.toLowerCase() === 'prime') {
+                    compositeOutput = "Prime";
+                }
+            }
+            
+            if (primeOutput) {
+                if (primeOutput.toLowerCase().includes('not') || primeOutput.toLowerCase().replace(/\s/g, '') === 'notprime') {
+                    primeOutput = "Not Prime";
+                } else if (primeOutput.toLowerCase() === 'prime') {
+                    primeOutput = "Prime";
+                }
+            }
+            
+            // Return result
+            if (isPrime) {
+                return primeOutput || "Prime";
+            } else {
+                return compositeOutput || "Not Prime";
+            }
+        }
+
+        function runAllTests() {
+            const testCases = [
+                { input: 2, expected: "Prime" },
+                { input: 3, expected: "Prime" },
+                { input: 4, expected: "Not Prime" },
+                { input: 7, expected: "Prime" },
+                { input: 10, expected: "Not Prime" },
+                { input: 1, expected: "Not Prime" },
+                { input: 0, expected: "Not Prime" },
+                { input: 17, expected: "Prime" },
+                { input: 20, expected: "Not Prime" }
+            ];
+
+            const code = document.getElementById('codeInput').value;
+            const outputBox = document.getElementById('output');
+            
+            let allPassed = true;
+            let failCount = 0;
+            
+            testCases.forEach((test, index) => {
+                try {
+                    const result = executePythonCode(code, test.input);
+                    const passed = result === test.expected;
+                    
+                    if (!passed) {
+                        allPassed = false;
+                        failCount++;
+                    }
+                } catch (error) {
+                    allPassed = false;
+                    failCount++;
+                    console.error('Test error:', error);
+                }
+            });
+            
+            // Update output box
+            if (allPassed) {
+                outputBox.textContent = 'All test cases passed!';
+                showFlag();
+            } else {
+                outputBox.textContent = `${failCount} Test cases failed`;
+            }
+        }
+
+        function showFlag() {
+            const flagDisplay = document.getElementById('flagDisplay');
+            const flagText = document.getElementById('flagText');
+            flagText.textContent = 'HLT{pr1m3_d3bugg1ng_m4st3r_2026}';
+            flagDisplay.style.display = 'block';
+            flagDisplay.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
