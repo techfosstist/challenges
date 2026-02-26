@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task 3 - Prime Number Debug</title>
+    <title>Task 4 - Car Hunt Challenge</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@400;700&family=VT323&display=swap" rel="stylesheet">
@@ -16,8 +16,9 @@
 
         body {
             font-family: 'VT323', monospace;
-            background: #ffffff;
+            background: #2c3e50;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
         
@@ -32,8 +33,6 @@
             font-family: 'Press Start 2P', cursive;
         }
 
-        
-        
 
         .header-center {
             position: absolute;
@@ -56,135 +55,153 @@
             font-size: 32px;
         }
 
-        .menu-icon {
-            color: #ffffff;
-            font-size: 28px;
-            cursor: pointer;
-            line-height: 1;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .task-section {
+            background: #34495e;
             padding: 40px 20px;
+            text-align: center;
         }
 
         .task-title {
-            font-size: 36px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #000000;
-            font-family: 'Pixelify Sans', cursive;
-        }
-
-        .task-description {
-            font-size: 30px;
-            line-height: 1.6;
-            margin-bottom: 15px;
-            color: #000000;
-        }
-
-        .hint {
-            font-size: 18px;
-            margin-bottom: 25px;
-            color: #000000;
-        }
-
-        .code-editor {
-            background: #e8e8e8;
-            border-radius: 4px;
-            padding: 15px;
-            margin-bottom: 20px;
-        }
-
-        .code-editor textarea {
-            width: 100%;
-            min-height: 280px;
-            background: #ffffff;
-            color: #000000;
-            border: 1px solid #cccccc;
-            border-radius: 3px;
-            padding: 12px;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            line-height: 1.4;
-            resize: vertical;
-        }
-
-        .btn {
-            padding: 10px 24px;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-family: 'Pixelify Sans', cursive;
-            margin-bottom: 20px;
-        }
-
-        .btn-primary {
-            background: #0066cc;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #0052a3;
-        }
-
-        .output-box {
-            background: #1a1a1a;
+            font-size: 48px;
             color: #ffffff;
-            padding: 15px 20px;
-            border-radius: 4px;
+            margin-bottom: 30px;
+            font-family: 'Pixelify Sans', cursive;
+        }
+
+        .task-instruction {
+            background: #ecf0f1;
+            color: #000000;
+            padding: 20px 40px;
+            border-radius: 10px;
+            font-size: 24px;
+            display: inline-block;
+            margin-bottom: 30px;
+            position: relative;
+            font-family: 'VT323', monospace;
+        }
+
+        .task-instruction::before {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50px;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #ecf0f1;
+        }
+
+        .website-button {
+            background: #000000;
+            color: #ffffff;
+            padding: 15px 40px;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'VT323', monospace;
+            transition: all 0.3s ease;
+        }
+
+        .website-button:hover {
+            background: #333333;
+            transform: scale(1.05);
+        }
+
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .car-item {
+            font-size: 80px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.5));
+        }
+
+        .car-item:hover {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .input-section {
+            background: #ecf0f1;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .input-label {
+            font-size: 24px;
+            color: #000000;
+            margin-bottom: 20px;
+            font-family: 'VT323', monospace;
+        }
+
+        .car-input {
+            width: 80%;
+            max-width: 600px;
+            padding: 15px;
+            font-size: 20px;
+            border: 3px solid #000000;
+            border-radius: 5px;
             font-family: 'VT323', monospace;
             margin-bottom: 20px;
-            min-height: 50px;
-            font-size: 20px;
-            border: 2px solid #333333;
         }
 
-        .test-results-section {
+        .submit-button {
+            background: #27ae60;
+            color: #ffffff;
+            padding: 15px 50px;
+            font-size: 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Pixelify Sans', cursive;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background: #229954;
+            transform: scale(1.05);
+        }
+
+        .message {
             margin-top: 20px;
+            font-size: 22px;
+            font-family: 'VT323', monospace;
+            min-height: 30px;
         }
 
-        .test-results-title {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #000000;
+        .error {
+            color: #e74c3c;
         }
 
-        .test-result {
-            padding: 12px 15px;
-            margin-bottom: 8px;
-            font-family: 'Courier New', monospace;
-            font-size: 13px;
-            border-radius: 3px;
-        }
-
-        .test-fail {
-            background: #f8d7da;
-            color: #721c24;
-        }
-
-        .test-pass {
-            background: #d4edda;
-            color: #155724;
+        .success {
+            color: #27ae60;
         }
 
         .flag-display {
             background: #ffff00;
             color: #000000;
-            padding: 20px;
-            border-radius: 4px;
+            padding: 30px;
+            border-radius: 10px;
             text-align: center;
-            margin-top: 20px;
-            font-size: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            font-size: 24px;
             font-weight: bold;
             display: none;
-            border: 3px solid #000000;
+            border: 5px solid #000000;
             font-family: 'Press Start 2P', cursive;
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
 </head>
@@ -192,7 +209,7 @@
     <div class="header">
         <div class="header-left">
             <span class="logo-icon"></span>
-           
+        
         </div>
         <div class="header-center">
             <span class="header-title">Capture The Flag</span>
@@ -200,235 +217,153 @@
         </div>
     </div>
 
-    <div class="container">
-       
+    <div class="task-section">
         
-        <p class="task-description">
-            Debug the provided Python code snippets, which contain intentional errors. Identify and correct all mistakes. Pass all test cases to obtain the Flag.
-        </p>
-        
-        <p class="hint">
-            Hint! There are 3 errors in the code
-        </p>
+        <div class="task-instruction">
+            Find the FIVE cars I like!!
+        </div>
+        <button class="website-button" onclick="showCarSection()">Click me to go to the website</button>
+    </div>
 
-        <div class="code-editor">
-            <textarea id="codeInput" spellcheck="false">num = int(input("Enter number: "))
-if num < 1:
-    print("Prime")
-else:
-    for i in range(2, num):
-        if num % i == 0:
-            print("Prime")
-            break
-    else:
-        print("Not Prime")</textarea>
+    <div id="carSection" class="hidden">
+        <div class="car-grid" id="carGrid">
+            <!-- Cars will be inserted here -->
         </div>
 
-        <button class="btn btn-primary" onclick="runAllTests()">Run Code</button>
-        
-        <div class="output-box" id="output"></div>
-
-        <div class="flag-display" id="flagDisplay">
-            🎉 FLAG: <span id="flagText"></span>
+        <div class="input-section">
+            <div class="input-label">Enter Here</div>
+            <input type="text" id="carInput" class="car-input" placeholder="car_name">
+            <br>
+            <button class="submit-button" onclick="checkCar()">Drive!</button>
+            <div id="message" class="message"></div>
+            <div id="flagDisplay" class="flag-display">
+                🎉 FLAG: <span id="flagText"></span>
+            </div>
         </div>
     </div>
 
     <script>
-        function executePythonCode(code, inputNum) {
-            let num = inputNum;
-            
-            // Normalize quotes
-            code = code.replace(/['']/g, "'").replace(/[""]/g, '"');
-            
-            // For numbers <= 1
-            if (num <= 1) {
-                // Check if code has correct condition (num <= 1)
-                if (code.includes('num <= 1')) {
-                    // Extract what it prints
-                    const lines = code.split('\n');
-                    for (let i = 0; i < lines.length; i++) {
-                        if (lines[i].includes('num <= 1')) {
-                            const nextLine = lines[i + 1];
-                            if (nextLine && nextLine.includes('print')) {
-                                const match = nextLine.match(/print\s*\(\s*["']([^"']+)["']/);
-                                if (match) {
-                                    let output = match[1].trim();
-                                    // Normalize output
-                                    if (output.toLowerCase().includes('not') || output.toLowerCase().includes('notprime')) {
-                                        return "Not Prime";
-                                    } else if (output.toLowerCase().includes('prime')) {
-                                        return "Prime";
-                                    }
-                                    return output;
-                                }
-                            }
-                            break;
-                        }
-                    }
-                    return "Not Prime";
-                } else if (code.includes('num < 1')) {
-                    // Wrong condition
-                    if (num < 1) {
-                        const lines = code.split('\n');
-                        for (let i = 0; i < lines.length; i++) {
-                            if (lines[i].includes('num < 1')) {
-                                const nextLine = lines[i + 1];
-                                if (nextLine && nextLine.includes('print')) {
-                                    const match = nextLine.match(/print\s*\(\s*["']([^"']+)["']/);
-                                    if (match) {
-                                        let output = match[1].trim();
-                                        if (output.toLowerCase().includes('not') || output.toLowerCase().includes('notprime')) {
-                                            return "Not Prime";
-                                        } else if (output.toLowerCase().includes('prime')) {
-                                            return "Prime";
-                                        }
-                                        return output;
-                                    }
-                                }
-                                break;
-                            }
-                        }
-                        return "Prime";
-                    } else {
-                        // num == 1, goes to else branch
-                        return "Prime"; // Will be wrong
-                    }
-                }
-            }
-            
-            // For numbers >= 2, check if actually prime
-            let isPrime = true;
-            for (let i = 2; i < num; i++) {
-                if (num % i === 0) {
-                    isPrime = false;
-                    break;
-                }
-            }
-            
-            // Extract what code prints for composite and prime
-            const lines = code.split('\n');
-            let compositeOutput = null;
-            let primeOutput = null;
-            
-            for (let i = 0; i < lines.length; i++) {
-                const line = lines[i];
-                
-                // Find "if num % i == 0:"
-                if (line.includes('num % i == 0')) {
-                    const nextLine = lines[i + 1];
-                    if (nextLine && nextLine.includes('print')) {
-                        const match = nextLine.match(/print\s*\(\s*["']([^"']+)["']/);
-                        if (match) {
-                            compositeOutput = match[1].trim();
-                        }
-                    }
-                }
-                
-                // Find for-else (else after break)
-                if (line.trim() === 'else:') {
-                    // Check if there's a break before this else
-                    let hasBreak = false;
-                    for (let j = i - 1; j >= 0 && j >= i - 3; j--) {
-                        if (lines[j].includes('break')) {
-                            hasBreak = true;
-                            break;
-                        }
-                    }
-                    
-                    if (hasBreak) {
-                        const nextLine = lines[i + 1];
-                        if (nextLine && nextLine.includes('print')) {
-                            const match = nextLine.match(/print\s*\(\s*["']([^"']+)["']/);
-                            if (match) {
-                                primeOutput = match[1].trim();
-                            }
-                        }
-                    }
-                }
-            }
-            
-            // Normalize outputs
-            if (compositeOutput) {
-                if (compositeOutput.toLowerCase().includes('not') || compositeOutput.toLowerCase().replace(/\s/g, '') === 'notprime') {
-                    compositeOutput = "Not Prime";
-                } else if (compositeOutput.toLowerCase() === 'prime') {
-                    compositeOutput = "Prime";
-                }
-            }
-            
-            if (primeOutput) {
-                if (primeOutput.toLowerCase().includes('not') || primeOutput.toLowerCase().replace(/\s/g, '') === 'notprime') {
-                    primeOutput = "Not Prime";
-                } else if (primeOutput.toLowerCase() === 'prime') {
-                    primeOutput = "Prime";
-                }
-            }
-            
-            // Return result
-            if (isPrime) {
-                return primeOutput || "Prime";
-            } else {
-                return compositeOutput || "Not Prime";
-            }
+        // Car emojis and their names
+        const cars = [
+            { emoji: '🚗', name: 'sedan' },
+            { emoji: '🚙', name: 'suv' },
+            { emoji: '🚕', name: 'taxi' },
+            { emoji: '🚌', name: 'bus' },
+            { emoji: '🚎', name: 'trolleybus' },
+            { emoji: '🏎️', name: 'racecar' },
+            { emoji: '🚓', name: 'police' },
+            { emoji: '🚑', name: 'ambulance' },
+            { emoji: '🚒', name: 'firetruck' },
+            { emoji: '🚐', name: 'minibus' },
+            { emoji: '🚚', name: 'truck' },
+            { emoji: '🚛', name: 'lorry' },
+            { emoji: '🚜', name: 'tractor' },
+            { emoji: '🛻', name: 'pickup' },
+            { emoji: '🚘', name: 'coupe' }
+        ];
+
+        // Sequence validation data
+        const s1 = [114,97,99,101,99,97,114];
+        const s2 = [112,111,108,105,99,101];
+        const s3 = [102,105,114,101,116,114,117,99,107];
+        const s4 = [112,105,99,107,117,112];
+        const s5 = [99,111,117,112,101];
+        const v9k = [s1,s2,s3,s4,s5].map(arr => arr.map(n => String.fromCharCode(n)).join(''));
+        
+        let currentStep = 0; // Track which car should be entered next
+
+        function showCarSection() {
+            document.getElementById('carSection').classList.remove('hidden');
+            document.querySelector('.task-section').style.display = 'none';
+            renderCars();
         }
 
-        function runAllTests() {
-            const testCases = [
-                { input: 2, expected: "Prime" },
-                { input: 3, expected: "Prime" },
-                { input: 4, expected: "Not Prime" },
-                { input: 7, expected: "Prime" },
-                { input: 10, expected: "Not Prime" },
-                { input: 1, expected: "Not Prime" },
-                { input: 0, expected: "Not Prime" },
-                { input: 17, expected: "Prime" },
-                { input: 20, expected: "Not Prime" }
-            ];
-
-            const code = document.getElementById('codeInput').value;
-            const outputBox = document.getElementById('output');
+        function renderCars() {
+            const grid = document.getElementById('carGrid');
+            grid.innerHTML = '';
             
-            let allPassed = true;
-            let failCount = 0;
+            // Shuffle cars for random display
+            const shuffled = [...cars].sort(() => Math.random() - 0.5);
             
-            testCases.forEach((test, index) => {
-                try {
-                    const result = executePythonCode(code, test.input);
-                    const passed = result === test.expected;
-                    
-                    if (!passed) {
-                        allPassed = false;
-                        failCount++;
-                    }
-                } catch (error) {
-                    allPassed = false;
-                    failCount++;
-                    console.error('Test error:', error);
-                }
+            shuffled.forEach(car => {
+                const carDiv = document.createElement('div');
+                carDiv.className = 'car-item';
+                carDiv.textContent = car.emoji;
+                carDiv.title = 'Click to inspect';
+                carDiv.onclick = () => inspectCar(car.name);
+                grid.appendChild(carDiv);
             });
+        }
+
+        function inspectCar(carName) {
+            document.getElementById('carInput').value = carName;
+        }
+
+        function checkCar() {
+            const input = document.getElementById('carInput').value.toLowerCase().trim();
+            const message = document.getElementById('message');
             
-            // Update output box
-            if (allPassed) {
-                outputBox.textContent = 'All test cases passed!';
-                showFlag();
-            } else {
-                outputBox.textContent = `${failCount} Test cases failed`;
+            if (!input) {
+                message.textContent = 'Please enter a car name!';
+                message.className = 'message error';
+                return;
             }
+
+            // Check if this is the correct car for the current step
+            if (input === v9k[currentStep]) {
+                currentStep++;
+                message.textContent = `Correct! ${input} is car #${currentStep}! (${currentStep}/5)`;
+                message.className = 'message success';
+                
+                if (currentStep === 5) {
+                    showFlag();
+                }
+            } else {
+                // Wrong car or wrong order - reset everything
+                if (v9k.includes(input)) {
+                    message.textContent = `Wrong order! ${input} is correct but not at this position. Starting over... (0/5)`;
+                } else {
+                    message.textContent = `Wrong car! ${input} is not one of my favorites. Starting over... (0/5)`;
+                }
+                message.className = 'message error';
+                currentStep = 0; // Reset to beginning
+            }
+            
+            document.getElementById('carInput').value = '';
         }
 
         function showFlag() {
             const flagDisplay = document.getElementById('flagDisplay');
             const flagText = document.getElementById('flagText');
             
-            // Generate success message
-            const a9 = String.fromCharCode(72, 73, 84);
-            const b3 = String.fromCharCode(123, 112, 114, 49, 109, 51, 95, 100, 51, 98, 117, 103, 103, 49, 110, 103, 95, 109, 52, 115, 116, 51, 114, 95, 50, 48, 50, 54, 125);
-            const c8 = a9 + b3;
+            // Data assembly
+            const x7d = [72,73,84,123];
+            const a9 = [99,52,114,95];
+            const b3 = [104,117,110,116];
+            const m2k = [51,114,95,109];
+            const p8v = [52,115,116,51];
+            const q1n = [114,95,50,48];
+            const w5r = [50,54,125];
             
-            flagText.textContent = c8;
+            // Combine segments
+            const z9x = [...x7d, ...a9, ...b3, ...m2k, ...p8v, ...q1n, ...w5r];
+            const t4h = z9x.map(c => String.fromCharCode(c)).join('');
+            
+            flagText.textContent = t4h;
             flagDisplay.style.display = 'block';
-            flagDisplay.scrollIntoView({ behavior: 'smooth' });
+            
+            document.getElementById('message').textContent = 'Congratulations! You found all 5 cars in the correct order!';
+            document.getElementById('message').className = 'message success';
         }
+
+        // Allow Enter key to submit
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('carInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    checkCar();
+                }
+            });
+        });
     </script>
 </body>
 </html>
