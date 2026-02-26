@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Cookies</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+        }
+        h1 {
+            color: #fa709a;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .cookie-box {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 10px;
+            border-left: 5px solid #fa709a;
+            margin: 20px 0;
+        }
+        .description {
+            font-size: 1.05em;
+            color: #333;
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            line-height: 1.6;
+            text-align: left;
+        }
+        .cookie-icon {
+            font-size: 4em;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Browser Cookies</h1>
+        <div class="cookie-box">
+            <div class="cookie-icon">🍪</div>
+            <p class="description">
+                Your browser remembers more than you think. But which memory holds the truth?
+            </p>
+        </div>
+    </div>
+    <script>
+        // Setting cookies...
+        document.cookie = "session_token=U0VsVWUyTXdNR3N4TTE5b2RXNTBNM0o5; path=/";
+        
+        // Decoy cookies
+        document.cookie = "user_id=12345; path=/";
+        document.cookie = "theme=dark; path=/";
+        document.cookie = "language=en-US; path=/";
+        document.cookie = "preferences=eyJub3RpZmljYXRpb25zIjp0cnVlfQ==; path=/";
+        document.cookie = "tracking_id=abc-def-ghi-jkl; path=/";
+    </script>
+</body>
+</html>
