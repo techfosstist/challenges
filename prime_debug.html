@@ -419,7 +419,13 @@ else:
         function showFlag() {
             const flagDisplay = document.getElementById('flagDisplay');
             const flagText = document.getElementById('flagText');
-            flagText.textContent = 'HLT{pr1m3_d3bugg1ng_m4st3r_2026}';
+            
+            // Generate success message
+            const a9 = String.fromCharCode(72, 73, 84);
+            const b3 = String.fromCharCode(123, 112, 114, 49, 109, 51, 95, 100, 51, 98, 117, 103, 103, 49, 110, 103, 95, 109, 52, 115, 116, 51, 114, 95, 50, 48, 50, 54, 125);
+            const c8 = a9 + b3;
+            
+            flagText.textContent = c8;
             flagDisplay.style.display = 'block';
             flagDisplay.scrollIntoView({ behavior: 'smooth' });
         }
