@@ -3,7 +3,6 @@
     "title": "The Strange Signal",
     "description": "You are Agent Shadow, assigned to investigate a low-priority signal that slipped through automated filters.\n\nAt 02:13 AM, a short burst transmission was captured from an unidentified endpoint. The message appears structured, but its contents are not immediately readable.\n\nPreliminary analysis suggests that the message is not encrypted using complex algorithms, but rather transformed into another representation.\n\nThe intercepted message reads:\n\nSElUe2Jhc2U2NF9kZWNvZGVkX2NsZWFuX1Q3elFhNE59\n\nYour mission: Recover the original message hidden within this transmission.",
     "points": 10,
-    "flag": "HIT{base64_decoded_clean_T7zQa4N}",
     "hints": [
       "The format looks familiar to common encoding schemes.",
       "Not all transformations are meant to secure data"
@@ -13,139 +12,107 @@
     "isActive": true
   },
   {
-  "title": "The Fragmented Transmission",
-  "description": "Agent Shadow, a fragment of data was intercepted from a legacy system associated with the target group.\n\nThe captured transmission appears highly structured, yet it does not resemble any conventional message format. Each segment is separated in a consistent pattern, suggesting intentional organization rather than random noise.\n\nDespite multiple scans, no known signatures or obvious markers were identified. Analysts believe the meaning is embedded within the structure itself rather than hidden through complex protection mechanisms.\n\nThe intercepted sequence:\n\n01001000 01001001 01010100 01111011 01100010 01101001 01110100 01110011 01011111 01110100 01101111 01011111 01101100 01100101 01110100 01110100 01100101 01110010 01110011 01011111 01011000 00111001 01100110 00110011 01001011 01110001 00110111 01111101\n\nYour mission: Interpret the structure and recover the hidden message.",
-  "points": 10,
-  "flag": "HIT{bits_to_letters_X9f3Kq7}",
-  "hints": [
-    "Patterns often carry meaning",
-    "Focus on how the data is grouped"
-  ],
-  "downloadFileUrl": null,
-  "externalLink": null,
-  "isActive": true
+    "title": "The Fragmented Transmission",
+    "description": "Agent Shadow, a fragment of data was intercepted from a legacy system associated with the target group.\n\nThe captured transmission appears highly structured, yet it does not resemble any conventional message format. Each segment is separated in a consistent pattern, suggesting intentional organization rather than random noise.\n\nDespite multiple scans, no known signatures or obvious markers were identified. Analysts believe the meaning is embedded within the structure itself rather than hidden through complex protection mechanisms.\n\nThe intercepted sequence:\n\n01001000 01001001 01010100 01111011 01100010 01101001 01110100 01110011 01011111 01110100 01101111 01011111 01101100 01100101 01110100 01110100 01100101 01110010 01110011 01011111 01011000 00111001 01100110 00110011 01001011 01110001 00110111 01111101\n\nYour mission: Interpret the structure and recover the hidden message.",
+    "points": 10,
+    "hints": [
+      "Patterns often carry meaning",
+      "Focus on how the data is grouped"
+    ],
+    "downloadFileUrl": null,
+    "externalLink": null,
+    "isActive": true
   },
   {
-  "title": "The Silent Page",
-  "description": "Agent Shadow, a suspicious webpage was recovered from a compromised internal server.\n\nAt first glance, the page appears blank—almost as if it contains no useful data. However, intelligence reports suggest that this page was deliberately crafted to conceal information in plain sight.\n\nNo scripts, just a simple page that refuses to reveal its secrets easily.\n\nYou are advised to examine the page more carefully.\n\nYour mission: Discover what the page is hiding.",
-  "points": 10,
-  "flag": "HIT{white_text_never_hides}",
-  "hints": [
-    "Not everything visible is everything present",
-    "Try interacting with the page differently"
-  ],
-  "downloadFileUrl": null,
-  "externalLink": "https://techfosstist.github.io/challenges/hiddenpage.html",
-  "isActive": true
+    "title": "The Silent Page",
+    "description": "Agent Shadow, a suspicious webpage was recovered from a compromised internal server.\n\nAt first glance, the page appears blank—almost as if it contains no useful data. However, intelligence reports suggest that this page was deliberately crafted to conceal information in plain sight.\n\nNo scripts, just a simple page that refuses to reveal its secrets easily.\n\nYou are advised to examine the page more carefully.\n\nYour mission: Discover what the page is hiding.",
+    "points": 10,
+    "hints": [
+      "Not everything visible is everything present",
+      "Try interacting with the page differently"
+    ],
+    "downloadFileUrl": null,
+    "externalLink": "https://techfosstist.github.io/challenges/hiddenpage.html",
+    "isActive": true
   },
   {
-  "title": "The Overlooked Detail",
-  "description": "Agent Shadow, an image file was extracted from a suspect’s device during forensic analysis.\n\nInitial scans showed nothing unusual—no metadata anomalies, no embedded files, no encryption layers.\n\nThe image was likely designed to appear ordinary unless examined with attention.\n\nYour mission: Inspect the visual carefully and uncover any concealed detail.",
-  "points": 10,
-  "flag": "HIT{zoom_closer_now_P2mL8vR}",
-  "hints": [
-    "Try changing your perspective"
-  ],
-  "downloadFileUrl": "https://drive.google.com/file/d/1rXUkBnUnZbI6Uj2ym-qjLIelnos11YxJ/view?usp=drivesdk",
-  "externalLink": null,
-  "isActive": true
+    "title": "The Overlooked Detail",
+    "description": "Agent Shadow, an image file was extracted from a suspect’s device during forensic analysis.\n\nInitial scans showed nothing unusual—no metadata anomalies, no embedded files, no encryption layers.\n\nThe image was likely designed to appear ordinary unless examined with attention.\n\nYour mission: Inspect the visual carefully and uncover any concealed detail.",
+    "points": 10,
+    "hints": [
+      "Try changing your perspective"
+    ],
+    "downloadFileUrl": "https://drive.google.com/file/d/1rXUkBnUnZbI6Uj2ym-qjLIelnos11YxJ/view?usp=drivesdk",
+    "externalLink": null,
+    "isActive": true
   },
   {
-  "title": "The Inconsistent Output",
-  "description": "Agent Shadow, during an investigation into a compromised terminal, a suspicious output was recorded from an internal system.\n\nAt first glance, the message appears legitimate and follows the expected format. However, deeper analysis of system behavior suggests that the output may not be entirely reliable.\n\nThere are subtle inconsistencies between what is displayed and what is actually processed by the system. Logs indicate that the interface may be presenting altered information to mislead observers.\n\nYour mission: Identify the discrepancy in the message in the file and retrieve the true message hidden behind this output.",
-  "points": 10,
-  "flag": "HIT{copy_reveals_real_M8cTy6D}",
-  "hints": [],
-  "downloadFileUrl": null,
-  "externalLink": "https://techfosstist.github.io/challenges/copypaste.html",
-  "isActive": true
+    "title": "The Inconsistent Output",
+    "description": "Agent Shadow, during an investigation into a compromised terminal, a suspicious output was recorded from an internal system.\n\nAt first glance, the message appears legitimate and follows the expected format. However, deeper analysis of system behavior suggests that the output may not be entirely reliable.\n\nThere are subtle inconsistencies between what is displayed and what is actually processed by the system. Logs indicate that the interface may be presenting altered information to mislead observers.\n\nYour mission: Identify the discrepancy in the message in the file and retrieve the true message hidden behind this output.",
+    "points": 10,
+    "hints": [],
+    "downloadFileUrl": null,
+    "externalLink": "https://techfosstist.github.io/challenges/copypaste.html",
+    "isActive": true
   },
   {
-  "title": "Multi-File Assembly",
-  "description": "A simple webpage can hide more than what meets the eye.\nSomewhere within the resources quietly loaded in the background, fragments of a secret are scattered.\n\nNot every file is trustworthy — some are merely distractions placed to mislead curious minds.\nOnly the keen observer who carefully examines what the browser fetches will uncover meaningful clues.\n\nWithin certain style and script resources lie encoded fragments.\nEach valid fragment carries a clear identity, marked in sequence.\nWhen the genuine parts are gathered and arranged correctly, they begin to tell a story.\n\nBut the message is not immediately readable — it speaks in another form.\nTransform it into something human-readable, and the hidden truth will reveal itself.",
-  "points": 10,
-  "flag": "HIT{f1nd_th3_p13c3s}",
-  "hints": [],
-  "downloadFileUrl": null,
-  "externalLink": "https://techfosstist.github.io/challenges/multiindex.html",
-  "isActive": true
+    "title": "Multi-File Assembly",
+    "description": "A simple webpage can hide more than what meets the eye.\nSomewhere within the resources quietly loaded in the background, fragments of a secret are scattered.\n\nNot every file is trustworthy — some are merely distractions placed to mislead curious minds.\nOnly the keen observer who carefully examines what the browser fetches will uncover meaningful clues.\n\nWithin certain style and script resources lie encoded fragments.\nEach valid fragment carries a clear identity, marked in sequence.\nWhen the genuine parts are gathered and arranged correctly, they begin to tell a story.\n\nBut the message is not immediately readable — it speaks in another form.\nTransform it into something human-readable, and the hidden truth will reveal itself.",
+    "points": 10,
+    "hints": [],
+    "downloadFileUrl": null,
+    "externalLink": "https://techfosstist.github.io/challenges/multiindex.html",
+    "isActive": true
   },
   {
     "title": "Disabled Button Attribute",
     "description": "\nThe page may not reveal everything through interaction alone — some answers lie beneath its visible layers.\n\n\n- Look for hidden information in comments\n- Find all parts of the flag\n- Combine them to reveal the complete flag",
     "points": 10,
-    "flag": "HIT{butt0n_s3cr3ts}",
     "hints": [],
     "downloadFileUrl": null,
     "externalLink": "https://techfosstist.github.io/challenges/disabled_button.html",
     "isActive": true
   },
   {
-  "title": "Browser Cookies",
-  "description": "Not all treasures are displayed on the page itself — some are quietly stored where the browser keeps its memories.\n\nAmong the many crumbs left behind, one carries a layered secret that only repeated decoding will fully uncover.",
-  "points": 10,
-  "flag": "HIT{c00k13_hunt3r}",
-  "hints": [],
-  "downloadFileUrl": null,
-  "externalLink": "https://techfosstist.github.io/challenges/browser_cookies.html",
-  "isActive": true
-  },
-  {
-  "title": "Background Image Filename",
-  "description": "Not every clue is written in plain text — some are woven subtly into the design itself.\n\nLook closely at the elements that appear purely decorative, as even background details and unseen layers may carry an encoded message waiting to be revealed.",
-  "points": 10,
-  "flag": "HIT{css_n1nj4}",
-  "hints": [],
-  "downloadFileUrl": null,
-  "externalLink": "https://techfosstist.github.io/challenges/background_image.html",
-  "isActive": true
-  },
-  {
-  "title": "Text is behind another element",
-  "description": "What seems to block your view may only be a distraction placed above something important.\n\nClear the obstruction and examine both the hidden layer and its subtle styling details — the full message emerges only when every concealed fragment is brought together.",
-  "points": 10,
-  "flag": "HIT{d3l3t3_t0_s33}",
-  "hints": [],
-  "downloadFileUrl": null,
-  "externalLink": "https://techfosstist.github.io/challenges/text_overlay.html",
-  "isActive": true
-  },
-  {
-  "title": "Hidden Scroll Area",
-  "description": "The page may seem limited to what first appears on the screen, but its boundaries are not as fixed as they look.\n\nExpand your perspective, explore beyond the visible frame, and pay attention to even the faintest traces — sometimes a nearly invisible pattern holds the true message",
-  "points": 10,
-  "flag": "HIT{scr0ll_d33p3r}",
-  "hints": [],
-  "downloadFileUrl": null,
-  "externalLink": "https://techfosstist.github.io/challenges/hidden_scroll.html",
-  "isActive": true
-  },
-  {
-    "title": "The Responding Shadow",
-    "description": "Experience within the interface is not a one-way mirror, but a living dialogue that responds to those who probe its boundaries.\n\nSome secrets are only revealed in the brief moment when the presence of the observer is felt directly upon the circuitry, breaking the abstraction of the screen.",
+    "title": "Browser Cookies",
+    "description": "Not all treasures are displayed on the page itself — some are quietly stored where the browser keeps its memories.\n\nAmong the many crumbs left behind, one carries a layered secret that only repeated decoding will fully uncover.",
     "points": 10,
-    "flag": "HIT{h0v3r_n3dcvff}",
     "hints": [],
     "downloadFileUrl": null,
-    "externalLink": "https://techfosstist.github.io/challenges/hover_reveal_challenge.html",
+    "externalLink": "https://techfosstist.github.io/challenges/browser_cookies.html",
     "isActive": true
-  },  
+  },
   {
-    "title": "The Transient Echo",
-    "description": "Every digital interaction leaves a ripple in the digital ether, a silent conversation between machines that most eyes never perceive.\n\nTo find the truth, one must look beyond the rendered surface, feeling the pulse of the exchange to capture the essence of the signal itself.",
+    "title": "Background Image Filename",
+    "description": "Not every clue is written in plain text — some are woven subtly into the design itself.\n\nLook closely at the elements that appear purely decorative, as even background details and unseen layers may carry an encoded message waiting to be revealed.",
     "points": 10,
-    "flag": "HIT{n3tw04rk_nd83n3f}",
     "hints": [],
     "downloadFileUrl": null,
-    "externalLink": "https://techfosstist.github.io/challenges/network_tab_challenge.html",
+    "externalLink": "https://techfosstist.github.io/challenges/background_image.html",
     "isActive": true
-
+  },
+  {
+    "title": "Text is behind another element",
+    "description": "What seems to block your view may only be a distraction placed above something important.\n\nClear the obstruction and examine both the hidden layer and its subtle styling details — the full message emerges only when every concealed fragment is brought together.",
+    "points": 10,
+    "hints": [],
+    "downloadFileUrl": null,
+    "externalLink": "https://techfosstist.github.io/challenges/text_overlay.html",
+    "isActive": true
+  },
+  {
+    "title": "Hidden Scroll Area",
+    "description": "The page may seem limited to what first appears on the screen, but its boundaries are not as fixed as they look.\n\nExpand your perspective, explore beyond the visible frame, and pay attention to even the faintest traces — sometimes a nearly invisible pattern holds the true message",
+    "points": 10,
+    "hints": [],
+    "downloadFileUrl": null,
+    "externalLink": "https://techfosstist.github.io/challenges/hidden_scroll.html",
+    "isActive": true
   },
   {
     "title": "The Presence of Absence",
     "description": "We are accustomed to searching for meaning in what appears before us, ignoring the vast silence of the negative space.\n\nSometimes the most significant revelation is not written in ink, but hidden in the very gaps left between the lines of a narrative that seems already complete.",
     "points": 10,
-    "flag": "HIT{display315_edn01n2e}",
     "hints": [],
     "downloadFileUrl": null,
     "externalLink": "https://techfosstist.github.io/challenges/hidden_sentence_challenge.html",
@@ -155,7 +122,6 @@
     "title": "The Triumvirate's Offset",
     "description": "The signals of the past are never truly deleted; they are merely realigned using protocols from an ancient era directed by the house of Julius.\n\nA simple turn of the wheel is all that separates static from direction, requiring a specific re-alignment to restore the original signal from the noise.",
     "points": 10,
-    "flag": "HIT{HAIL_JULIUS}",
     "hints": [],
     "downloadFileUrl": null,
     "externalLink": "https://techfosstist.github.io/challenges/caesar_shift_challenge.html",
@@ -165,87 +131,78 @@
     "title": "The Document's Depth",
     "description": "Digital archives hold more than just the words visible on the page; they contain layers of metadata that record the environment of their creation.\n\nA methodical inspection of the background noise can reveal patterns that standard reading would never uncover, provided you are willing to look into the file's internal properties.",
     "points": 10,
-    "flag": "HIT{9smflag_PDf9na}",
     "hints": [],
     "downloadFileUrl": "https://techfosstist.github.io/challenges/pdf_ctf.pdf",
     "externalLink": null,
     "isActive": true
   },
   {
-  "title": "jwt_manipulation",
-  "description": "A token has been intercepted, but it's password protected.\n\nFind the password to unlock the token and decode it to reveal the flag.",
-  "points": 10,
-  "flag": "HIT{jwt_1s_n0t_s3cur3}",
-  "hints": [],
-  "downloadFileUrl": null,
-  "externalLink": "https://techfosstist.github.io/challenges/jwt-manipulation.html",
-  "isActive": true
+    "title": "jwt_manipulation",
+    "description": "A token has been intercepted, but it's password protected.\n\nFind the password to unlock the token and decode it to reveal the flag.",
+    "points": 10,
+    "hints": [],
+    "downloadFileUrl": null,
+    "externalLink": "https://techfosstist.github.io/challenges/jwt-manipulation.html",
+    "isActive": true
   },
   {
     "title": "Broken The Logic",
     "description": "Debug the provided Python code snippets, which contain intentional errors. \n\nIdentify and correct all mistakes. Pass all test cases to obtain the Flag.",
     "points": 10,
-    "flag": "HIT{pr1m3_d3bugg1ng_m4st3r_2026}",
     "hints": [],
     "downloadFileUrl": null,
     "externalLink": "https://techfosstist.github.io/challenges/prime_debug.html",
     "isActive": true
   },
   {
-  "title": "Logic Lockdown",
-  "description": "Find the FIVE cars I like!! \n\nExplore the vehicle collection and identify the correct cars",
-  "points": 10,
-  "flag": " HIT{c4r_hunt3r_m4st3r_2026}",
-  "hints": [],
-  "downloadFileUrl": null,
-  "externalLink": "https://techfosstist.github.io/challenges/car_hunt.html",
-  "isActive": true
+    "title": "Logic Lockdown",
+    "description": "Find the FIVE cars I like!! \n\nExplore the vehicle collection and identify the correct cars",
+    "points": 10,
+    "hints": [],
+    "downloadFileUrl": null,
+    "externalLink": "https://techfosstist.github.io/challenges/car_hunt.html",
+    "isActive": true
   },
   {
-  "title": "catch me if you can",
-  "description": "Visit an external website and explore it to find the hidden flag. \n\nUse your web exploration skills!",
-  "points": 10,
-  "flag": "HIT{n4tur3_3xpl0r3r_m4st3r_2026}",
-  "hints": [],
-  "downloadFileUrl": null,
-  "externalLink": "https://techfosstist.github.io/challenges/external_challenge.html",
-  "isActive": true
-  },
-   {
-  "title": "Silent Identity",
-  "description": "This MP3 file appears completely normal.\n\nIt plays without issue.\n\nThere is no hidden audio.\n\nBut files often carry more than just sound.\n\nFind the flag.",
-  "points": 10,
-  "flag": "HIT{Not_all_treasure_is_silver_and_gold_mate_JSQBHIGx12}",
-  "hints": [],
-  "downloadFileUrl": "https://drive.google.com/file/d/11rl5Wrk9KPL_6jFx9dg_-oYwodwcrYG_/view?usp=drive_link",
-  "externalLink": null,
-  "isActive": true
+    "title": "catch me if you can",
+    "description": "Visit an external website and explore it to find the hidden flag. \n\nUse your web exploration skills!",
+    "points": 10,
+    "hints": [],
+    "downloadFileUrl": null,
+    "externalLink": "https://techfosstist.github.io/challenges/external_challenge.html",
+    "isActive": true
   },
   {
-  "title": "A Matter of Perspective",
-  "description": "The message below was written in a hurry.\n\n}gnirts_elpmis_yrev{TIH\n\nSometimes, the simplest transformations are the easiest to overlook.\n\nRecover the original flag.",
-  "points": 10,
-  "flag": "HIT{very_simple_string}",
-  "hints": [],
-  "downloadFileUrl": null,
-  "externalLink": null,
-  "isActive": true
+    "title": "Silent Identity",
+    "description": "This MP3 file appears completely normal.\n\nIt plays without issue.\n\nThere is no hidden audio.\n\nBut files often carry more than just sound.\n\nFind the flag.",
+    "points": 10,
+    "hints": [],
+    "downloadFileUrl": "https://drive.google.com/file/d/11rl5Wrk9KPL_6jFx9dg_-oYwodwcrYG_/view?usp=drive_link",
+    "externalLink": null,
+    "isActive": true
   },
   {
-  "title": "Echo Within Echo",
- "description": "The following transmission was captured from a repeating channel:\n\nU0VsVWUybGZZVzFmYUdGamEyVnlYMHBMTmpkOQ==\n\nAt first glance, it seems solvable.\n\nTake another look.",
-  "points": 10,
-  "flag": "HIT{i_am_hacker_JK67}",
-  "hints": [],
-  "downloadFileUrl": null,
-  "externalLink": null,
-  "isActive": true
+    "title": "A Matter of Perspective",
+    "description": "The message below was written in a hurry.\n\n}gnirts_elpmis_yrev{TIH\n\nSometimes, the simplest transformations are the easiest to overlook.\n\nRecover the original flag.",
+    "points": 10,
+    "hints": [],
+    "downloadFileUrl": null,
+    "externalLink": null,
+    "isActive": true
+  },
+  {
+    "title": "Echo Within Echo",
+    "description": "The following transmission was captured from a repeating channel:\n\nU0VsVWUybGZZVzFmYUdGamEyVnlYMHBMTmpkOQ==\n\nAt first glance, it seems solvable.\n\nTake another look.",
+    "points": 10,
+    "hints": [],
+    "downloadFileUrl": null,
+    "externalLink": null,
+    "isActive": true
   },
   {
     "title": "Misplaced Letters",
     "description": "Agent Shadow intercepted a message that appears almost readable at first glance.\n\nHIT{e3lpmis_3v3r_yreV}\n\nThe structure looks correct, but something feels… out of order.\n\nRecover the original flag.",
     "points": 10,
-    "flag": "HIT{very_simple_3v3r}",
     "hints": [],
     "downloadFileUrl": null,
     "externalLink": null,
@@ -255,64 +212,8 @@
     "title": "Nothing Here",
     "description": "Agent Shadow recovered a small text file from a suspect’s device.\n\nInitial inspection suggests the file contains no useful information.\n\nBut sometimes, what appears insignificant deserves a second look.\n\nDownload the file and investigate carefully.",
     "points": 10,
-    "flag": "HIT{nothing_here.txt}",
     "hints": [],
     "downloadFileUrl": "https://techfosstist.github.io/challenges/nothing_here.txt",
-    "externalLink": null,
-    "isActive": true
-  },
-  {
-  "title": "Hidden Tail",
-  "description": "An old masterpiece hides more than artistic beauty.\nYou are given an image that appears completely normal at first glance. However, CTF players know that files may contain hidden information beyond what is visible.\nYour task is to carefully analyze the image file and recover the hidden flag embedded inside it.\n⚠️ The flag is hidden within the image data itself — not visually.",
-  "points": 10,
-  "flag": "HIT{png_tail_flag_4821}",
-  "hints": [
-    "Images can store extra data after their official end."
-  ],
-  "downloadFileUrl": "https://drive.google.com/file/d/19Cfb4xiyZMCocTmnItNgc9XpucowJ-gJ/view?usp=drivesdk",
-  "externalLink": null,
-  "isActive": true
-  },
-  {
-  "title": "Beep Hunt",
-  "description": "A mysterious audio transmission was intercepted during network monitoring.\nThe file contains a sequence of repeating beeps that may sound meaningless at first. However, careful listeners might recognize a familiar pattern used for communication long before modern digital systems existed.\nAnalyze the provided audio file and decode the hidden message to retrieve the flag.\n🔊 Listen carefully — timing matters.",
-  "points": 10,
-  "flag": "HIT{morse_beep_hunt_7319}",
-  "hints": [
-    "Short and long beeps usually represent something",
-    "Try visualizing the waveform or spectrogram."
-  ],
-  "downloadFileUrl": "https://drive.google.com/file/d/1EkVcqkw6SZop0_6hz_GgDQ99HAE7Oe85/view?usp=drivesdk",
-  "externalLink": null,
-  "isActive": true
-  },
-  {
-    "title": "Uncalled Execution",
-    "description": "Welcome to the TechFOSS Legacy Access Terminal.\n\nThis system simulates an old compute node still running several internal modules. \nWhile the interface appears fully operational, system logs suggest that not every loaded routine is actively executed.\n\nYour objective is to investigate how the application behaves beyond normal user interaction.\n\nSome components remain present in memory even when they are never triggered during standard operation.\n\nExplore carefully. The flag exists within the system — but only curious minds will uncover it.\n\nFlag format: HIT{...}",
-    "points": 10,
-    "flag": "HIT{unused_function_flag}",
-    "hints": [],
-    "downloadFileUrl":null,
-    "externalLink":"https://techfosstist.github.io/challenges/ctf.html",
-    "isActive": true
-  },
-  {
-    "title": "Beyond the Interface",
-    "description": "Welcome to the TechFOSS interface dashboard.\n\nThis modern analytics UI appears simple at first glance, displaying various technology insights and system information. However, not every feature is immediately accessible through the visible interface.\n\nSome controls are intentionally hidden and require deeper exploration beyond normal user interaction.\n\nYour objective:\n• Explore the interface carefully\n• Investigate the system like a developer would\n• Discover hidden functionality\n• Reveal the secret flag\n\nRemember: interfaces do not always expose all available controls.",
-    "points": 10,
-    "flag": "HIT{dark_mode_truth}",
-    "hints": [],
-    "downloadFileUrl":null,
-    "externalLink": "https://techfosstist.github.io/challenges/Beyond_the_Interface.html",
-    "isActive": true
-  },
-  {
-    "title": "The Symbolic Transmission",
-    "description": "Agent Shadow, a peculiar transmission was intercepted during routine surveillance.\n\nUnlike conventional signals, this one contains no readable words, no recognizable syntax, and no obvious structure. Instead, it appears to rely entirely on visual markers arranged with deliberate precision.\n\nThe intercepted sequence reads:\n\n🏠 🍦 🌳 { 🦅 🌙 🦉 🤹 🍦 _ 🌳 🌈 🦅 🌈 🥜 ⭐ 🦁 🦅 🌈 🥜 _ 🌙 🦅 ⭐ 🌳 🦅 🌈 _ ☂️ 🥜 🦁 🦉 🌊 🔑 🦅 🐬 }\n\nNo additional explanation accompanied the transmission.\n\nYour mission: Determine what this sequence represents and recover the hidden message.",
-    "points": 15,
-    "flag": "HIT{emoji_translation_master_unlocked}",
-    "hints": [],
-    "downloadFileUrl": "https://techfosstist.github.io/challenges/emoji_key.png",
     "externalLink": null,
     "isActive": true
   }
